@@ -10,4 +10,4 @@ const db = require('./', (req, res) => {
 });
 
 
-app.listen(PORT, () => console.log(``));
+app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
