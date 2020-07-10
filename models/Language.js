@@ -1,5 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const mongoose = require('mongoose');
 
-// Database
-const db = require('../models');
+
+const languageController = {
+    language: {
+        type: String,
+    }
+};
+
+const Language = mongoose.model('Language', languageController);
+
+module.exports = Language;

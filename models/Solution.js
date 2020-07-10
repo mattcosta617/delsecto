@@ -1,4 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const mongoose = require('mongoose');
 
-// Database
+
+const solutionsController = {
+    solution: {
+        type: String,
+    }
+};
+
+const Solution = mongoose.model('Solution', solutionsController);
+
+module.exports = Solution;

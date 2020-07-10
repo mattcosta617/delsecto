@@ -1,5 +1,16 @@
-const express = require('express');
-const router = express.Router();
+const mongoose = require('mongoose');
 
-// Database
-const db = require('../models');
+
+const questionsController = {
+    question: {
+        type: String,
+    }, solution: {
+        type: String,
+    }, body: {
+        type: String,
+    },
+};
+
+const Question = mongoose.model('Question', questionsController);
+
+module.exports = Question;
