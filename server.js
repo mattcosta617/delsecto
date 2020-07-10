@@ -33,16 +33,16 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 app.use('/languages', (req, res) => {
-    res.render(languageCtrl);
+    res.render('./language', languageCtrl);
 });
 app.use('/questions', (req, res) => {
-    res.render(questionCtrl);
+    res.render('./questions', questionCtrl);
 });
 app.use('/solutions', (req, res) => {
-    res.render(solutionsCtrl);
+    res.render('./solutions', solutionsCtrl);
 });
 app.use('/user', (req,res) => {
-    res.render(userCtrl);
+    res.render('./user', userCtrl);
 });
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
