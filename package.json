@@ -1,0 +1,27 @@
+{
+  "name": "delsecto",
+  "version": "1.0.0",
+  "description": "A community debugging platform.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/mattcosta617/delsecto.git"
+  },
+  "author": "Matt and Chase",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattcosta617/delsecto/issues"
+  },
+  "homepage": "https://github.com/mattcosta617/delsecto#readme",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.23",
+    "node": "^14.5.0"
+  }
+}
