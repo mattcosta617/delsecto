@@ -4,6 +4,11 @@ const PORT = process.env.PORT || 4000;
 
 app.set('view engine', 'ejs');
 
+//Home
+app.get('/', (req, res) => {
+    res.render('home.ejs');
+});
+
 
 const db = require('./', (req, res) => {
     res.send("Hello! Welcome to Delsecto!")
