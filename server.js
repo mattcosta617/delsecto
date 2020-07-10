@@ -45,12 +45,9 @@ app.use('/solutions', (req, res) => {
 app.use('/user', (req,res) => {
     res.render(userCtrl);
 });
-app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
 
 const db = require('./', (req, res) => {
     res.send("Hello! Welcome to Delsecto!")
 });
 
-
-app.listen(PORT, () => console.log(``));
-//
+app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
