@@ -3,7 +3,6 @@ const app = express();
 const methodOverride = require('method-override');
 const PORT = process.env.PORT || 4000;
 
-app.set('view engine', 'ejs');
 
 // --------------------------CALL CONTROLLERS-------------------------
 const languageCtrl = require('./controllers/languageController');
@@ -44,10 +43,6 @@ app.use('/solutions', (req, res) => {
 });
 app.use('/user', (req,res) => {
     res.render('./user', userCtrl);
-});
-
-const db = require('./', (req, res) => {
-    res.send("Hello! Welcome to Delsecto!")
 });
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
