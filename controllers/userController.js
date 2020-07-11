@@ -7,10 +7,10 @@ router.get('/', (req, res) => {
     db.User.find({}, (err, allUsers) => {
         if (err) return console.log(err);
 
-    res.render('users/index', {
-        users: allUsers,
-    })
-});
+        res.render('users/index', {
+             users: allUsers,
+        })
+    });
 });
 
 router.get('/new', (req, res) => {

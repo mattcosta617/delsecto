@@ -5,9 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../public/styles/main.css">
     <!-- <script src="../../public/js/app.js"></script> -->
-    <title>Document</title>
+    <title>Ask</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
+    <h1>Ask A Question!</h1>
+    <form action="/ask/_id" method="POST">
+        <div>
+          <label for="ask">Question:</label>
+          <input type="text" id="ask" name="ask" />
+        </div>
+        <div>
+          <label for="body">Password</label>
+          <input id="body" name="body"></input>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
 </body>
 </html>

@@ -4,13 +4,13 @@ const db = require('../models');
 
 router.get('/', (req, res) => {
 
-db.Language.find({}, (err, allLanguages) => {
-    console.log('All languages = ', allLanguages);
+    db.Language.find({}, (err, allLanguages) => {
+        if(err) return console.log(err);
 
-    res.render('languages/index', {
-        users: allLanguages,
-    })
-});
+        res.render('languages/index', {
+             languages: allLanguages,
+        })
+    });
 });
 
 router.get('/new', (req, res) => {

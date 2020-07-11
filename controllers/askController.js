@@ -5,12 +5,12 @@ const db = require('../models');
 router.get('/', (req, res) => {
 
     db.Ask.find({}, (err, allAsks) => {
-    console.log('All asks = ', allAsks);
+        if(err) return console.log(err);
 
-    res.render('ask/index', {
-        asks: allAsks,
-    })
-});
+        res.render('ask/index', {
+            asks: allAsks,
+        })
+    });
 });
 
 router.get('/new', (req, res) => {
