@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const questionsController = {
+const questionsController = new mongoose.Schema({
     question: {
         type: String,
     }, solution: {
@@ -9,7 +9,7 @@ const questionsController = {
     }, body: {
         type: String,
     },
-};
+}, {timestamps: true});
 
 const Question = mongoose.model('Question', questionsController);
 

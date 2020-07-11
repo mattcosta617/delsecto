@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-const userController = {
+const userController = new mongoose.Schema ({
     name: {
         type: String,
     }, questions: {
@@ -9,7 +9,7 @@ const userController = {
     }, solutions: {
         type: String,
     }
-};
+}, {timestamps: true});
 
 const User = mongoose.model('users', userController);
 

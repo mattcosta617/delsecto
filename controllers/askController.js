@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
-// const db = require('../models');
+const db = require('../models');
 
 router.get('/', (req, res) => {
 
-    // console.log('All asks = ', allAsks);
+    db.Ask.find({}, (err, allAsks) => {
+    console.log('All asks = ', allAsks);
 
     res.render('ask/index', {
-        // asks: allAsks,
+        asks: allAsks,
     })
+});
 });
 
 router.get('/new', (req, res) => {

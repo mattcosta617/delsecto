@@ -9,5 +9,28 @@
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
+
+    <main>  
+        <h1>Create A User Name!</h1>
+        <form action="/user/_id" method="POST">
+            <!-- <div>
+              <label for="user">User</label>
+              <select name="userId" id="user">
+                 user.forEach(user => { 
+                  <option value="\  user._id   ">   user.name     </option>
+                 }) 
+              </select>
+            </div> -->
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" />
+            </div>
+            <div>
+              <label for="body">Password</label>
+              <input id="body" name="body"></input>
+            </div>
+            <button type="submit">Create User</button>
+          </form>
+    </main>
 </body>
 </html>

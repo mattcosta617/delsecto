@@ -10,3 +10,10 @@ mongoose.connect(connectionString, {
   .then(() => console.log('MongoDB connected successfully'))
   .catch((err) => console.log(`MongoDB connection error: ${err}`));
 
+
+module.exports = {
+  Ask: require('./Ask'),
+  Language: require('./Language'),
+  Question: require('./Question'),
+  User: require('./User'),
+};

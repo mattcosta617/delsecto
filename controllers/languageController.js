@@ -1,14 +1,16 @@
 const express = require('express');
 const router = express.Router();
-// const db = require('../models');
+const db = require('../models');
 
 router.get('/', (req, res) => {
 
-    // console.log('All languages = ', allLanguages);
+db.Language.find({}, (err, allLanguages) => {
+    console.log('All languages = ', allLanguages);
 
     res.render('languages/index', {
-        // users: allLanguages,
+        users: allLanguages,
     })
+});
 });
 
 router.get('/new', (req, res) => {
