@@ -4,16 +4,19 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
 
-    // console.log('All languages = ', allLanguages);
+    // console.log('All asks = ', allAsks);
 
-    res.render('languages/index', {
-        // users: allLanguages,
+    res.render('ask/index', {
+        // asks: allAsks,
     })
 });
 
 router.get('/new', (req, res) => {
-    res.render('languages/new');
+    res.render('ask/new');
 });
+
+
+
 
 
 

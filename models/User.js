@@ -11,6 +11,6 @@ const userController = {
     }
 };
 
-const User = mongoose.model('User', userController);
+const User = mongoose.model('users', userController);
 
 module.exports = User;

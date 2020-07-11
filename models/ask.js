@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 
-const solutionsController = {
+const askController = {
     solution: {
         type: String,
     }
 };
 
-const Solution = mongoose.model('Solution', solutionsController);
+const Solution = mongoose.model('Solution', askController);
 
 module.exports = Solution;
