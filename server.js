@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 4000;
 // --------------------------CALL CONTROLLERS-------------------------
 const languageCtrl = require('./controllers/languageController');
 const questionCtrl = require('./controllers/questionsController');
-const solutionsCtrl = require('./controllers/solutionsController');
+const askCtrl = require('./controllers/askController');
 const userCtrl = require('./controllers/userController');
 
 // -------------------------VIEW ENGINE--------------------------------
@@ -32,17 +32,13 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.render('home');
 });
-app.use('/languages', (req, res) => {
-    res.render('./language', languageCtrl);
-});
-app.use('/questions', (req, res) => {
-    res.render('./questions', questionCtrl);
-});
-app.use('/solutions', (req, res) => {
-    res.render('./solutions', solutionsCtrl);
-});
-app.use('/user', (req,res) => {
-    res.render('./user', userCtrl);
-});
+app.use('/languages', languageCtrl);
+
+app.use('/questions', questionCtrl);
+
+app.use('/ask', askCtrl);
+
+app.use('/users', userCtrl);
+
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));

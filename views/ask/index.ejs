@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../public/styles/main.css">
+    <!-- <script src="../../public/js/app.js"></script> -->
+    <title>Ask</title>
+</head>
+<body>
+    <%- include ('../partials/header.ejs'); -%>
+    <h1>Ask A Question!</h1>
+    <form action="/questions" method="POST">
+               
+        
+ <%- include ('../partials/languageList.ejs'); -%>
+        
+        <div>  
+           
+          <label for="ask">Question:</label>
+          <textarea type="text" id="ask" name="ask"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+</body>
+</html>
