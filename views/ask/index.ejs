@@ -11,35 +11,12 @@
     <%- include ('../partials/header.ejs'); -%>
     <h1>Ask A Question!</h1>
     <form action="/questions" method="POST">
-        <div>
-            <label for="languages">Languages</label>
-            <select name="languageId" id="language">
-                <option value="HTML">
-                    <!-- Can add the ability to fill languages from language object -->
-                    HTML
-                </option>
-                <option value="CSS">  
-                    CSS
-                </option>
-                <option value="Git">
-                    Git
-                </option>
-                <option value="Javscript">
-                    Javascript
-                </option>
-                <option value="MongoDB">
-                    MongoDB
-                </option>
-                <option value="Python">
-                    Python
-                </option>
-                <option value="Express">
-                    Express
-                </option>
-
-            </select>
-          </div>
-        <div>
+               
+        
+ <%- include ('../partials/languageList.ejs'); -%>
+        
+        <div>  
+           
           <label for="ask">Question:</label>
           <textarea type="text" id="ask" name="ask"></textarea>
         </div>
