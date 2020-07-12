@@ -3,21 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../../public/styles/main.css">
     <!-- <script src="../../public/js/app.js"></script> -->
     <title>Ask</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
     <h1>Ask A Question!</h1>
-    <form action="/ask/_id" method="POST">
+    <form action="/questions" method="POST">
         <div>
           <label for="ask">Question:</label>
-          <input type="text" id="ask" name="ask" />
-        </div>
-        <div>
-          <label for="body">Password</label>
-          <input id="body" name="body"></input>
+          <textarea type="text" id="ask" name="ask"></textarea>
         </div>
         <button type="submit">Submit</button>
       </form>
