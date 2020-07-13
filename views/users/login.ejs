@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/styles/main.css">
+    <!-- <script src="../../public/js/app.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <%- include ('../partials/header.ejs'); -%>
+    <main>  
+        <h1>Login</h1>
+        <form action="/users/new" method="POST">
+            <div>
+              <label for="username">Name</label>
+              <input type="text" name="username">
+            </div>
+            <div>
+              <label for="password">Password</label>
+              <input type="text" name="password"></input>
+            </div>
+            <button type="submit">Create User</button>
+          </form>
+          <a href="users/register">Register</a>
+        </a>
+    </main>
+</body>
+</html>
