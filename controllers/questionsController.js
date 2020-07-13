@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { findById } = require('../models/Ask');
 
 
 
@@ -43,7 +42,7 @@ router.post('/', (req, res) => {
 
 // -------------Attempted id page but currently no page occuring
 router.get('/:id', (req, res) => {
-    db.Questions.findById(req.params.id, (err, foundQuestion) => {
+    db.Question.findById(req.params.id, (err, foundQuestion) => {
         if(err) return console.log(err);
 
         res.render('questions/show', {
@@ -57,14 +56,15 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
   
-    db.Question.create(req.body, (err, newArticle) => {
+    db.Question.create(req.body, (err, newQuestion) => {
       if (err) return console.log(err);
   
-      console.log(newArticle);
+      console.log(newQuestion);
       db.Question.findById(req.body.QuestionsId, (err, foundQuestion) => {
-        foundQuestion.articles.push(newArticle);
+        foundQuestion.articles.push(newQuestion);
         foundQuestion.save((err, savedQuestions) => {
           console.log('savedQuestions: ', savedQuestions);
+          
           res.redirect('/questions/new');
         })
       })
