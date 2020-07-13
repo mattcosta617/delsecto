@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 
 // -------------Attempted id page but currently no page occuring
 router.get('/:id', (req, res) => {
-    db.Questions.findById(req.params.id, (err, foundQuestion) => {
+    db.Question.findById(req.params.id, (err, foundQuestion) => {
         if(err) return console.log(err);
 
         res.render('questions/show', {
@@ -66,7 +66,6 @@ router.post('/', (req, res) => {
           console.log('savedQuestions: ', savedQuestions);
           
           res.redirect('/questions/new');
-          res.post(Question);
         })
       })
     });
