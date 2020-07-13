@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
 
 
 
-// -------------Attempted id page but currently no page occuring
+// -------------QUESTION BY ID PAGE---------------------
 router.get('/:id', (req, res) => {
     db.Question.findById(req.params.id, (err, foundQuestion) => {
         if(err) return console.log(err);
@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-// -----------------------This is my attempt to create new question pages but currently does not work
+// -----------------------NEW QUESTION CREATED---------------
 router.post('/', (req, res) => {
     console.log(req.body);
   
@@ -70,6 +70,16 @@ router.post('/', (req, res) => {
       })
     });
   });
+
+  router.get('/:id/edit', (req, res) => {
+      db.Question.findById(req.params.id, (err, editQuestion) => {
+          if(err) return console.log(err);
+
+          res.render('questions/edit', {
+              editQuestion: editQuestion
+          });
+      })
+  })
 
 
 module.exports = router;
