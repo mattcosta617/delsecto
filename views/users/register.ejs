@@ -12,14 +12,14 @@
 
     <main>  
         <h1>Create A User Name!</h1>
-        <form action="/user/_id" method="POST">
+        <form action="/users/show" method="POST">
             <div>
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" />
+              <label for="username">Name</label>
+              <input type="text" name="username">
             </div>
             <div>
-              <label for="body">Password</label>
-              <input id="body" name="body"></input>
+              <label for="password">Password</label>
+              <input type="text" name="password"></input>
             </div>
             <button type="submit">Create User</button>
           </form>
