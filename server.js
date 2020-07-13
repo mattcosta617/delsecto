@@ -13,6 +13,7 @@ const questionCtrl = require('./controllers/questionsController');
 // const askCtrl = require('./controllers/askController');
 const userCtrl = require('./controllers/userController');
 const passport = require('passport');
+const { db } = require('./models/Ask');
 
 // -------------------------VIEW ENGINE--------------------------------
 
@@ -48,5 +49,6 @@ app.use('/questions', questionCtrl);
 // app.use('/ask', askCtrl);
 
 app.use('/users', userCtrl);
+
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
