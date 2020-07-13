@@ -19,3 +19,12 @@ to send questions to. Maybe add more questions to add a question for each langua
 of each languages question page.
 
 
+<% if (questions.length) { %>
+            <% questions.forEach((question) => { %>
+              <a href="/questions/<%= question._id %>">
+                <h4><%= question.questions %></h4>
+              </a>
+            <% }) %>
+          <% } else { %>
+            <h4>No Questions found</h4>
+          <% } %>
