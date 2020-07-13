@@ -42,9 +42,7 @@ router.post('/', (req, res) => {
 
 // -------------Attempted id page but currently no page occuring
 router.get('/:id', (req, res) => {
-    db.Question.findById('questions', req.params.id)
-        .populate({path: 'questions'})
-        .exec((err, foundQuestion) => {
+    db.Question.findById(req.params.id, (err, foundQuestion) => {
         if(err) return console.log(err);
 
         res.render('questions/show', {
