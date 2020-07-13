@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 4000;
 // --------------------------CALL CONTROLLERS-------------------------
 const languageCtrl = require('./controllers/languageController');
 const questionCtrl = require('./controllers/questionsController');
-const askCtrl = require('./controllers/askController');
+// const askCtrl = require('./controllers/askController');
 const userCtrl = require('./controllers/userController');
 
 // -------------------------VIEW ENGINE--------------------------------
@@ -36,9 +36,8 @@ app.use('/languages', languageCtrl);
 
 app.use('/questions', questionCtrl);
 
-app.use('/ask', askCtrl);
+// app.use('/ask', askCtrl);
 
 app.use('/users', userCtrl);
-
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
