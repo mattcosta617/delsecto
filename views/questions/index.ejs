@@ -14,7 +14,7 @@
         <h1>Questions!</h1>
         <%  questions.forEach(question => { %>
             <div>
-            <a href="/questions/<%=` ${question.id} `%>"><%= question.question %></a>
+            <a href="/questions/<%=` ${question.id} `%>/show"><%= question.question %></a>
        <% }); %>
     </div>
     </main>
