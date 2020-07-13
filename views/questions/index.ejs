@@ -12,11 +12,81 @@
 
     <main>
         <h1>Questions!</h1>
+        <h1> HTML</h1>
+      
         <%  questions.forEach(question => { %>
             <div>
-            <a href="/questions/<%=` ${question.id} `%>/show"><%= question.question %></a>
-       <% }); %>
-    </div>
+                
+                  <% if(question.languageId === "HTML") { %>
+                <a href="/questions/<%=` ${question.id} `%>"> 
+                    <%= question.question %>
+                </a> 
+                <% } else { %>
+                   <%= console.log('error'); %>
+               <% } %>
+                <% }); %>
+            </div>
+      
+        <h1>CSS</h1>
+      
+              <%  questions.forEach(question => { %>
+            <div>
+                  <% if(question.languageId === "CSS") { %>
+                <a href="/questions/<%=` ${question.id} `%>">
+                    <%= question.question %>
+                </a>
+                <% } %>
+             <%  }); %>
+            </div>
+
+            <h1>Javascript</h1>
+      
+              <%  questions.forEach(question => { %>
+            <div>
+                  <% if(question.languageId === "Javascript") { %>
+                <a href="/questions/<%=` ${question.id} `%>">
+                    <%= question.question %>
+                </a>
+                <% } %>
+             <%  }); %>
+            </div>
+
+            <h1>MongoDB</h1>
+      
+              <%  questions.forEach(question => { %>
+            <div>
+                  <% if(question.languageId === "MongoDB") { %>
+                <a href="/questions/<%=` ${question.id} `%>">
+                    <%= question.question %>
+                </a>
+                <% } %>
+             <%  }); %>
+            </div>
+
+            <h1>Python</h1>
+      
+              <%  questions.forEach(question => { %>
+            <div>
+                  <% if(question.languageId === "Python") { %>
+                <a href="/questions/<%=` ${question.id} `%>">
+                    <%= question.question %>
+                </a>
+                <% } %>
+             <%  }); %>
+            </div>
+
+            <h1>Express</h1>
+      
+              <%  questions.forEach(question => { %>
+            <div>
+                  <% if(question.languageId === "Express" && questions < 5) { %>
+                <a href="/questions/<%=` ${question.id} `%>">
+                    <%= question.question %>
+                </a>
+                <% } %>
+             <%  }); %>
+            </div>
+    
     </main>
 </body>
 </html>

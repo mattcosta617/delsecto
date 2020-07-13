@@ -42,7 +42,9 @@ router.post('/', (req, res) => {
 
 // -------------Attempted id page but currently no page occuring
 router.get('/:id', (req, res) => {
-    db.Question.findById(req.params.id, (err, foundQuestion) => {
+    db.Question.findById('questions', req.params.id)
+        .populate({path: 'questions'})
+        .exec((err, foundQuestion) => {
         if(err) return console.log(err);
 
         res.render('questions/show', {
@@ -60,12 +62,12 @@ router.post('/', (req, res) => {
       if (err) return console.log(err);
   
       console.log(newQuestion);
-      db.Question.findById(req.body.QuestionsId, (err, foundQuestion) => {
-        foundQuestion.articles.push(newQuestion);
+      db.Question.findById(req.body.questionsId, (err, foundQuestion) => {
+        foundQuestion.push(newQuestion);
         foundQuestion.save((err, savedQuestions) => {
           console.log('savedQuestions: ', savedQuestions);
           
-          res.redirect('/questions/new');
+          res.redirect('questions/show');
         })
       })
     });
