@@ -60,12 +60,12 @@ router.post('/', (req, res) => {
       if (err) return console.log(err);
   
       console.log(newQuestion);
-      db.Question.findById(req.body.QuestionsId, (err, foundQuestion) => {
-        foundQuestion.articles.push(newQuestion);
+      db.Question.findById(req.body.questionsId, (err, foundQuestion) => {
+        foundQuestion.push(newQuestion);
         foundQuestion.save((err, savedQuestions) => {
           console.log('savedQuestions: ', savedQuestions);
           
-          res.redirect('/questions/new');
+          res.redirect('questions/show');
         })
       })
     });
