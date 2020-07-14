@@ -2,33 +2,14 @@ const mongoose = require('mongoose');
 
 
 const questionsController = new mongoose.Schema({
-    question: {
-        type: String,
+        question: {
+            type: String,
     }, languageId: {
-        type: String,
-    }, languages: {
-        HTML: {
             type: String,
-        },
-        CSS: {
-            type: String,
-        },
-        Javascript: {
-            type: String,
-        },
-        Python: {
-            type: String,
-        },
-        Express: {
-            type: String,
-        },
-        MongoDB: {
-            type: String,
-        },
     }, solution: {
-        type: String,
+            type: String,
     }, code: {
-        type: String,
+             type: String,
     },
 }, {timestamps: true});
 

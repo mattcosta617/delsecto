@@ -12,7 +12,6 @@
 
 <h1>Edit Your Question</h1>
 
-<%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
 
 
 <main>
@@ -25,6 +24,7 @@
       <textarea id="body" name="question"><%= question.question %></textarea>
     </div>
     <button type="submit">Update Question</button>
+    <%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
   </form>
 </main>
 </body>

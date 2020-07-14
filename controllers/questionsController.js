@@ -111,6 +111,24 @@ router.post('/', (req, res) => {
     });
   });
   
+  // ------------------Solutions-----------------------
+router.post('/:id', (req, res) => {
+    console.log('New Answer = ', req.body);
+    db.Question.create(req.body, (err, newSolution) => {
+        if (err) return console.log(err);
+    
+        console.log(newSolution);
+        db.Question.findById(req.body.solutionsId, (err, foundSolution) => {
+          foundSolution.push(newSolution);
+          foundSolution.save((err, savedSolutions) => {
+            console.log('savedSolutions: ', savedSolutions);
+            
+            res.redirect('questions/:id');
+          })
+        })
+      });
+    });
+
 
 
 module.exports = router;
