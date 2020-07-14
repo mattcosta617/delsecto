@@ -1,0 +1,13 @@
++ mongoose@5.9.23
++ passport@0.4.1
++ passport@0.4.1
++ passport-local@1.0.0
++ install@0.13.0
++ passport-local-mongoose@6.0.1
+added 9 packages from 5 contributors, updated 1 package and audited 109 packages in 4.444s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+

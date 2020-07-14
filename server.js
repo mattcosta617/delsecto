@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
+const bodyParser = require('body-parser');
+const LocalStrategy = require('passport-local');
+const passportLocalMongoose = require('passport-local-mongoose');
 const PORT = process.env.PORT || 4000;
 
 
@@ -9,6 +12,7 @@ const languageCtrl = require('./controllers/languageController');
 const questionCtrl = require('./controllers/questionsController');
 // const askCtrl = require('./controllers/askController');
 const userCtrl = require('./controllers/userController');
+const passport = require('passport');
 
 // -------------------------VIEW ENGINE--------------------------------
 
@@ -22,6 +26,13 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({extended: false}));
 
+<<<<<<< HEAD
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+=======
+>>>>>>> 4f82601d2ed34590e20eb499c6a716fd0a13462e
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${new Date().toLocaleTimeString()}`);
