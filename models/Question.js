@@ -4,6 +4,8 @@ const mongoose = require('mongoose');
 const questionsController = new mongoose.Schema({
     question: {
         type: String,
+    }, languageId: {
+        type: String,
     }, solution: {
         type: String,
     }, body: {

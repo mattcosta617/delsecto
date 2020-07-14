@@ -23,14 +23,17 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(`${__dirname}/public`));
 
-app.use(methodOverride('method-override'));
+app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({extended: false}));
 
+<<<<<<< HEAD
 app.use(passport.initialize());
 app.use(passport.session());
 
 
+=======
+>>>>>>> 4f82601d2ed34590e20eb499c6a716fd0a13462e
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${new Date().toLocaleTimeString()}`);

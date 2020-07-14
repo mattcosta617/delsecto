@@ -1,0 +1,53 @@
+* {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+body {
+    background: #373737;
+    margin: 0;
+}
+
+.topnav {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #414141; 
+    height: 60px;  
+}
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav_centered */
+.topnav .link {
+    float: left;
+    text-align: center;
+    font-size: 17px;
+    padding: 20px 16px;
+}
+
+.topnav-center a:hover {
+    background: #373737;
+  }
+
+.logo {
+    float: left;
+    font-size: 35px;
+    margin: 10px;
+}
+
+.login {
+    float: right;
+    margin: 20px;
+}
+
+.welcome {
+    margin: 15px 10px 15px 10px;
+    font-size: 35px;
+    align-items: stretch;
+}
+
+th {
+    text-align: left;
+    padding: 15px;
+    font-size: 22px
+}
