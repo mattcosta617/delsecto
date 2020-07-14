@@ -76,10 +76,21 @@ router.post('/', (req, res) => {
           if(err) return console.log(err);
 
           res.render('questions/edit', {
-              editQuestion: editQuestion
+              question: editQuestion
           });
-      })
-  })
+      });
+  });
+
+  router.delete('/:id', (req, res) => {
+      console.log('Deleting Question = ', req.params.id);
+
+    db.Question.findByIdAndDelete(req.params.id, (err, deletedQuestion) => {
+        if(err) return  console.log(err);
+
+        console.log("The Deleted Question = ", deletedQuestion);
+        res.redirect('/questions');
+    });
+  });
 
 
 module.exports = router;
