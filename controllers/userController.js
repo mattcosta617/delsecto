@@ -23,7 +23,7 @@ router.get('/show', (req, res) => {
     res.render('users/show');
 });
 
-router.post('/', (req, res) => {
+router.post('/register', (req, res) => {
     db.User.register(new db.User({
         username:req.body.username
     }),
@@ -43,7 +43,7 @@ router.get('/', (req, res) => {
     res.render('users/login');
 });
 
-router.post('/login', passport.authenticate('local',{
+router.post('/', passport.authenticate('local',{
     successRedirect:'/users/show',
     failureRedirect:'/users/login'
 }),function(req, res){
