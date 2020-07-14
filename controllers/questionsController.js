@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 });
 
 
-// -----------Questions/new exists and works but holds no function yet---
+// -----------Questions/new exists and works-------------------
 router.get('/new', (req, res) => {
     db.Question.find({}, (err, questions) => {
         if (err) return console.log(err);
@@ -27,7 +27,7 @@ router.get('/new', (req, res) => {
 });
 
 
-//-------------------- Almost works but does not post new question to page yet
+//-------------------- Post new question to /questions page ---------
 router.post('/', (req, res) => {
     console.log('Request Body = ', req.body)
 
@@ -71,6 +71,8 @@ router.post('/', (req, res) => {
     });
   });
 
+  // --------------------- edit----------------
+
   router.get('/:id/edit', (req, res) => {
       db.Question.findById(req.params.id, (err, editQuestion) => {
           if(err) return console.log(err);
@@ -80,6 +82,8 @@ router.post('/', (req, res) => {
           });
       });
   });
+
+  //-----------------------DELETE-------------------------
 
   router.delete('/:id', (req, res) => {
       console.log('Deleting Question = ', req.params.id);

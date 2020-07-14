@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <title>Document</title>
-=======
     <!-- <link rel="stylesheet" href="../../public/styles/main.css"> -->
     <!-- <script src="../../public/js/app.js"></script> -->
     <title>Questions Index</title>
->>>>>>> 4f82601d2ed34590e20eb499c6a716fd0a13462e
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
@@ -21,21 +16,17 @@
         
       
         <h1> HTML</h1>
-      
-        <%  questions.forEach(question => { %>
+            <% for(let i = 0; i < questions.length; i++) { %>
             <div>
-                
-                  <% if(question.languageId === "HTML") { %>
-                <a href="/questions/<%=`${question._id}`%>"> 
-                    <%= question.question; %>
-                    
-                   
-                    
+                <% if(questions[i].languageId === "HTML") { %>
+                <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                   <br> <%= questions[i].question; %>
                 </a> 
-                <% } else if(question.languageId === "HTML" && questions.length > 5) {  %>
+                <% }else if(i > questions[5]) {  %>
                       <a href="questions/html">View more</a> 
-                  <% }}); %>
-                
+                    <%  return; %>
+                  <% }}; %>
+                <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
             </div>
       
         <h1>CSS</h1>
