@@ -40,7 +40,7 @@ router.post('/', (req, res) => {
 
 
 
-// -------------Attempted id page but currently no page occuring
+// -------------QUESTION BY ID PAGE---------------------
 router.get('/:id', (req, res) => {
     db.Question.findById(req.params.id, (err, foundQuestion) => {
         if(err) return console.log(err);
@@ -52,7 +52,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-// -----------------------This is my attempt to create new question pages but currently does not work
+// -----------------------NEW QUESTION CREATED---------------
 router.post('/', (req, res) => {
     console.log(req.body);
   
@@ -68,6 +68,27 @@ router.post('/', (req, res) => {
           res.redirect('questions/show');
         })
       })
+    });
+  });
+
+  router.get('/:id/edit', (req, res) => {
+      db.Question.findById(req.params.id, (err, editQuestion) => {
+          if(err) return console.log(err);
+
+          res.render('questions/edit', {
+              question: editQuestion
+          });
+      });
+  });
+
+  router.delete('/:id', (req, res) => {
+      console.log('Deleting Question = ', req.params.id);
+
+    db.Question.findByIdAndDelete(req.params.id, (err, deletedQuestion) => {
+        if(err) return  console.log(err);
+
+        console.log("The Deleted Question = ", deletedQuestion);
+        res.redirect('/questions');
     });
   });
 

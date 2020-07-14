@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(`${__dirname}/public`));
 
-app.use(methodOverride('method-override'));
+app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({extended: false}));
 
