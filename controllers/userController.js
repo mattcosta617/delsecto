@@ -45,7 +45,7 @@ router.get('/', (req, res) => {
 
 router.post('/', passport.authenticate('local',{
     successRedirect:'/users/show',
-    failureRedirect:'/users/login'
+    failureRedirect:'/users'
 }),function(req, res){
     res.send("User is "+ req.user.id);
 });

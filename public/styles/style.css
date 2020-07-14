@@ -55,3 +55,28 @@ th {
 input {
     color: black;
 }
+
+.log {
+    text-align: center;
+}
+
+.loginput {
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    border-radius: 8px;
+    border: 0;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.logbutton {
+    width: 300px;
+    height: 60px;
+    background: black;
+    border-radius: 9px;
+    border: 0;
+    margin: 5px;
+    color: white;
+    font-size: 18px;
+}

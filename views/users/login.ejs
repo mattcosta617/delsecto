@@ -9,20 +9,19 @@
 <body>
     <%- include ('../partials/header.ejs'); -%>
     <main>  
-        <h1>Login</h1>
+      <h1 class="log">Login</h1>
+      <div class="log">
         <form method="POST">
             <div>
-              <label for="username">Name</label>
-              <input type="text" name="username">
+              <input class="loginput" type="text" name="username" placeholder="email">
             </div>
             <div>
-              <label for="password">Password</label>
-              <input type="text" name="password"></input>
+              <input class="loginput" type="text" name="password" placeholder="password"></input>
             </div>
-            <button type="submit">Login</button>
+            <button class="logbutton" type="submit">Login</button>
           </form>
-          <a href="users/register">Register</a>
-        </a>
+          <a href="users/register">Signup!</a>
+      </div>
     </main>
 </body>
 </html>
