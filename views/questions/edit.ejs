@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles/main.css">
-    <!-- <script src="../../public/js/app.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
+
+
+<h1>Edit Your Question</h1>
+
+<%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
 </body>
 </html>

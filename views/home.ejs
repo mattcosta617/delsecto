@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../public/styles/main.css">
-    <!-- <script src="./public/js/app"></script> -->
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <title>DELSECTO</title>
 </head>
 <body>
     <%- include ('partials/header.ejs'); -%>
     <main>
-        <h1>Delsecto Is A Community For Debugging</h1>
-        <table style="width: 100%">
+        <p class="welcome">Delsecto Is A Community For Debugging</p>
+        <table >
             <tr>
                 <th>Choose A Language</th>
                 <th>Choose A Question</th>
@@ -20,7 +19,7 @@
             <tr>
                 <th><a href="">HTML</a></th>
                 <th><a href="">How do I setup my HTML?</a></th>
-                <th> <%- include ('partials/languageList.ejs'); -%> </th>
+                <th class="language"> <%- include ('partials/languageList.ejs'); -%> </th>
             </tr>    
             <tr>
                 <th><a href="">CSS</a></th>
