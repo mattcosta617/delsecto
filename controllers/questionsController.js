@@ -83,6 +83,21 @@ router.post('/', (req, res) => {
       });
   });
 
+  router.put('/:id', (req, res) => {
+      console.log('Updated Question = ', req.body);
+
+      db.Question.findByIdAndUpdate(
+          req.params.id,
+          req.body,
+          {new: true},
+          (err, updatedQuestion) => {
+              if (err) return console.log(err);
+
+              res.redirect('/questions');
+          }
+      );
+  });
+
   //-----------------------DELETE-------------------------
 
   router.delete('/:id', (req, res) => {
@@ -95,6 +110,7 @@ router.post('/', (req, res) => {
         res.redirect('/questions');
     });
   });
+  
 
 
 module.exports = router;
