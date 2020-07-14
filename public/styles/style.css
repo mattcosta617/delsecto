@@ -80,3 +80,8 @@ input {
     color: white;
     font-size: 18px;
 }
+
+#languages {
+    width: 100px;
+    height: 50px;
+}
