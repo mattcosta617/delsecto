@@ -4,7 +4,7 @@ const db = require('../models');
 
 router.get('/', (req, res) => {
 
-    db.Language.find({}, (err, allLanguages) => {
+    db.Question.find({}, (err, allLanguages) => {
         if(err) return console.log(err);
 
         res.render('languages/index', {
@@ -12,6 +12,15 @@ router.get('/', (req, res) => {
         })
     });
 });
+
+router.get('/', (req, res) => {
+    router.get('/show', (req, res) => {
+       
+        req.params.Question.questions.languages; 
+         res.render('languages/show');
+    })
+
+})
 
 router.get('/new', (req, res) => {
     res.render('languages/new');

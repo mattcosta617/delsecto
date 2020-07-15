@@ -5,11 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <title>Document</title>
+<<<<<<< HEAD
+=======
+=======
+    <link rel="stylesheet" href="../../public/styles/main.css">
+    <!-- <script src="../../public/js/app.js"></script> -->
+    <title>Questions Show Page</title>
+>>>>>>> aac7d99899a521a4a7a9bba4370066c72bbc2874
+>>>>>>> 01438e6f38f9cf9bcbc3eb0017508b40061bf91c
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
-    <main>
+    <main class="pagetext">
         <h1><%= question.languageId %> Question</h1>
 
         <a href="/questions/<%=`${question._id}`%>"> 
