@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4000;
 // --------------------------CALL CONTROLLERS-------------------------
 const languageCtrl = require('./controllers/languageController');
 const questionCtrl = require('./controllers/questionsController');
-// const askCtrl = require('./controllers/askController');
+// const solutionsCtrl = require('./controllers/solutionsController');
 const userCtrl = require('./controllers/userController');
 const passport = require('passport');
 
@@ -37,11 +37,12 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
     res.render('home');
 });
+
 app.use('/languages', languageCtrl);
 
 app.use('/questions', questionCtrl);
 
-// app.use('/ask', askCtrl);
+// app.use('/solutions', solutionsCtrl);
 
 app.use('/users', userCtrl);
 

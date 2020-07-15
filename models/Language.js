@@ -3,24 +3,15 @@ const mongoose = require('mongoose');
 
 const languageController = new mongoose.Schema({
         languages: {
-            HTML: [{
                 type: String,
-            }],
-             CSS: [{
+             }, language: {
                 type: String,
-             }],
-             Javascript: [{
+        }, solutions: {
                 type: String,
-             }],
-             Python: [{
-                type: String,
-             }],
-            Express: [{
-                type: String,
-            }],
-            MongoDB: [{
-                type: String,
-}] }});
+        }, code: {
+                 type: String,
+        },
+    });
 
 const Language = mongoose.model('Language', languageController);
 

@@ -6,7 +6,7 @@ const questionsController = new mongoose.Schema({
             type: String,
     }, languageId: {
             type: String,
-    }, solution: {
+    }, solutions: {
             type: String,
     }, code: {
              type: String,
