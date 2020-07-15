@@ -6,6 +6,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
+const session = reqruire('express-session')
 
 router.use(bodyParser.urlencoded({extended:true}));
 
@@ -63,5 +64,10 @@ function isLoggedIn(req, res, next){
     res.redirect('users/login');
 }
 
+// User.find((err, foundUser) => {if (err)
+//     console.log(err); 
+//     console.log(foundUser); 
+//     process.exit();
+// });
 
 module.exports = router;
