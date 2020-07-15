@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <title>Questions</title>
+=======
+    <!-- <link rel="stylesheet" href="../../public/styles/main.css"> -->
+    <!-- <script src="../../public/js/app.js"></script> -->
+    <title>Questions Index</title>
+>>>>>>> aac7d99899a521a4a7a9bba4370066c72bbc2874
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
@@ -15,82 +21,92 @@
         
       
         <h1> HTML</h1>
-      
-        <%  questions.forEach(question => { %>
+            <% for(let i = 0; i < questions.length; i++) { %>
             <div>
-                
-                  <% if(question.languageId === "HTML") { %>
-                <a href="/questions/<%=`${question._id}`%>"> 
-                    <%= question.question; %>
-                    
-                   
-                    
+                <% if(questions[i].languageId === "HTML") { %>
+                <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                   <br> <%= questions[i].question; %>
                 </a> 
-                <% } else if(question.languageId === "HTML" && questions.length > 5) {  %>
+                <% }else if(i > questions[5]) {  %>
                       <a href="questions/html">View more</a> 
-                  <% }}); %>
-                
+                    <%  return; %>
+                  <% }}; %>
+                <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
             </div>
       
         <h1>CSS</h1>
       
-              <%  questions.forEach(question => { %>
+        <% for(let i = 0; i < questions.length; i++) { %>
             <div>
-                  <% if(question.languageId === "CSS") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
+                <% if(questions[i].languageId === "CSS") { %>
+                <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                   <br> <%= questions[i].question; %>
+                </a> 
+                <% }else if(i > questions[5]) {  %>
+                      <a href="questions/css">View more</a> 
+                    <%  return; %>
+                  <% }}; %>
+                <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
             </div>
-
             <h1>Javascript</h1>
       
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "Javascript") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
+            <% for(let i = 0; i < questions.length; i++) { %>
+                <div>
+                    <% if(questions[i].languageId === "Javascript") { %>
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                       <br> <%= questions[i].question; %>
+                    </a> 
+                    <% }else if(i > questions[5]) {  %>
+                          <a href="questions/Javascript">View more</a> 
+                        <%  return; %>
+                      <% }}; %>
+                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
+                </div>
 
             <h1>MongoDB</h1>
       
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "MongoDB") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
+            <% for(let i = 0; i < questions.length; i++) { %>
+                <div>
+                    <% if(questions[i].languageId === "MongoDB") { %>
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                       <br> <%= questions[i].question; %>
+                    </a> 
+                    <% }else if(i > questions[5]) {  %>
+                          <a href="questions/MongoDB">View more</a> 
+                        <%  return; %>
+                      <% }}; %>
+                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
+                </div>
 
             <h1>Python</h1>
       
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "Python") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
+            <% for(let i = 0; i < questions.length; i++) { %>
+                <div>
+                    <% if(questions[i].languageId === "Python") { %>
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                       <br> <%= questions[i].question; %>
+                    </a> 
+                    <% }else if(i > questions[5]) {  %>
+                          <a href="questions/Python">View more</a> 
+                        <%  return; %>
+                      <% }}; %>
+                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
+                </div>
 
             <h1>Express</h1>
       
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "Express") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
+            <% for(let i = 0; i < questions.length; i++) { %>
+                <div>
+                    <% if(questions[i].languageId === "Express") { %>
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                       <br> <%= questions[i].question; %>
+                    </a> 
+                    <% }else if(i > questions[5]) {  %>
+                          <a href="questions/Express">View more</a> 
+                        <%  return; %>
+                      <% }}; %>
+                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
+                </div>
     
     </main>
 </body>
