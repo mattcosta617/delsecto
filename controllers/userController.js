@@ -16,8 +16,14 @@ router.get('/register', (req, res) => {
   res.render('users/register');
 });
 
+//////////////////////////////////////////////////
 router.get('/show', (req, res) => {
-    res.render('users/show');
+    db.User.findById(req.params.id, (err, foundUser) => {
+        if(err) return console.log(err);
+        res.render('users/show', {
+            user: foundUser,
+        });
+    });
 });
 
 router.post('/', (req, res) => {
@@ -41,6 +47,7 @@ router.post('/', (req, res) => {
 
         req.session.currentUser = currentUser;
         res.redirect('/users/show');
+        console.log(currentUser);
       } else {
 
         return res.send('Passwords do not match');
@@ -100,16 +107,16 @@ router.post('/register', (req, res) => {
 });
 
 
-// Logout Route
-// router.get('/logout', (req, res) => {
-//   if (!req.session.currentUser) return res.send('You must be logged in to logout');
+//Logout Route
+router.get('/logout', (req, res) => {
+  if (!req.session.currentUser) return res.send('You must be logged in to logout');
 
-//   req.session.destroy((err) => {
-//     if (err) return console.log(err);
+  req.session.destroy((err) => {
+    if (err) return console.log(err);
 
-//     res.redirect('/users');
-//   });
-// });
+    res.redirect('/users');
+  });
+});
 
 //Check Users That Have Been Created
 // db.User.find((err, foundUser) => {if (err)
