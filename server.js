@@ -27,11 +27,8 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({extended: false}));
 
-<<<<<<< HEAD
 app.use(passport.initialize());
 app.use(passport.session());
-=======
->>>>>>> aac7d99899a521a4a7a9bba4370066c72bbc2874
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${new Date().toLocaleTimeString()}`);
