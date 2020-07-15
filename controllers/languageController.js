@@ -87,33 +87,33 @@ router.get('/:id', (req, res) => {
       });
   });
 
-//   router.put('/:id', (req, res) => {
-//       console.log('Updated Question = ', req.body);
+  router.put('/:id', (req, res) => {
+      console.log('Updated Language = ', req.body);
 
-//       db.Question.findByIdAndUpdate(
-//           req.params.id,
-//           req.body,
-//           {new: true},
-//           (err, updatedQuestion) => {
-//               if (err) return console.log(err);
+      db.Language.findByIdAndUpdate(
+          req.params.id,
+          req.body,
+          {new: true},
+          (err, updatedLanguage) => {
+              if (err) return console.log(err);
 
-//               res.redirect('/questions');
-//           }
-//       );
-//   });
+              res.redirect('/languages');
+          }
+      );
+  });
 
-//   //-----------------------DELETE-------------------------
+  //-----------------------DELETE-------------------------
 
-//   router.delete('/:id', (req, res) => {
-//       console.log('Deleting Question = ', req.params.id);
+  router.delete('/:id', (req, res) => {
+      console.log('Deleting Language = ', req.params.id);
 
-//     db.Question.findByIdAndDelete(req.params.id, (err, deletedQuestion) => {
-//         if(err) return  console.log(err);
+    db.Language.findByIdAndDelete(req.params.id, (err, deletedLanguage) => {
+        if(err) return  console.log(err);
 
-//         console.log("The Deleted Question = ", deletedQuestion);
-//         res.redirect('/questions');
-//     });
-//   });
+        console.log("The Deleted Language = ", deletedLanguage);
+        res.redirect('/languages');
+    });
+  });
   
 
 
