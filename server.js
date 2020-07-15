@@ -13,6 +13,7 @@ const questionCtrl = require('./controllers/questionsController');
 // const askCtrl = require('./controllers/askController');
 const userCtrl = require('./controllers/userController');
 const passport = require('passport');
+const { db } = require('./models/Ask');
 
 // -------------------------VIEW ENGINE--------------------------------
 
@@ -26,13 +27,8 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({extended: false}));
 
-<<<<<<< HEAD
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-=======
->>>>>>> 4f82601d2ed34590e20eb499c6a716fd0a13462e
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${new Date().toLocaleTimeString()}`);
@@ -51,5 +47,6 @@ app.use('/questions', questionCtrl);
 // app.use('/ask', askCtrl);
 
 app.use('/users', userCtrl);
+
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));

@@ -3,6 +3,7 @@
     font-style: normal;
     color: #ffffff;
     text-decoration: none;
+    box-sizing: border-box;
 }
 
 body {
@@ -50,4 +51,87 @@ th {
     text-align: left;
     padding: 15px;
     font-size: 22px
+}
+
+input {
+    color: black;
+}
+
+.log {
+    text-align: center;
+}
+
+.loginput {
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    border-radius: 8px;
+    border: 0;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.logbutton {
+    width: 300px;
+    height: 60px;
+    background: black;
+    border-radius: 9px;
+    border: 0;
+    margin: 5px;
+    color: white;
+    font-size: 18px;
+}
+
+#language {
+    width: 200px;
+    height: 30px;
+    color: black;
+    border-radius: 5px;
+}
+
+.pagetext {
+    margin: 40px;
+}
+
+.hometext {
+    height: 200px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    margin: 5px 0 0 0;
+}
+
+.button:hover {
+    background-color: rgb(8, 8, 8);
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+  }
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.maintext {
+    font-size: 30px;
+    padding: 0 0 0;
 }

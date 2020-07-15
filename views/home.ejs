@@ -10,40 +10,31 @@
     <%- include ('partials/header.ejs'); -%>
     <main>
         <p class="welcome">Delsecto Is A Community For Debugging</p>
-        <table >
-            <tr>
-                <th>Choose A Language</th>
-                <th>Choose A Question</th>
-                <th>Ask A Question</th>
-            </tr>
-            <tr>
-                <th><a href="">HTML</a></th>
-                <th><a href="">How do I setup my HTML?</a></th>
-                <th class="language"> <%- include ('partials/languageList.ejs'); -%> </th>
-            </tr>    
-            <tr>
-                <th><a href="">CSS</a></th>
-                <th><a href="">How do I link my HTML and CSS?</a></th>
-                <th>
-                    <label for="ask">Question:</label>
-                    <input type="text" id="ask" name="ask" />
-                    <button type="submit">Submit</button>
-                </th>
-            </tr>
-            <tr>
-                <th><a href="">Javascript</a></th>
-                <th><a href="">What are the different loop functions in Javascript?</a></th>
-            </tr>
-            <tr>
-                <th><a href="">MongoDB</a></th>
-                <th><a href="">How do I run a timer on Javascript?</a></th>
-            </tr>
-            <tr>
-                <th><a href="">Python</a></th>
-                <th><a href="">What is Python?</a></th>
-            </tr>
-            
-        </table>
+            <div class="row">
+                <div class="column">
+                  <h2>Choose a Language</h2>
+                  <a class="maintext" href="">CSS</a></br>
+                  <a class="maintext" href="">Javascript</a></br>
+                  <a class="maintext" href="">HTML</a></br>
+                  <a class="maintext" href="">MongoDB</a></br>
+                  <a class="maintext" href="">Python</a></br>
+                </div>
+                <div class="column">
+                  <h2>Choose a Question</h2>
+                  <a class="maintext" href="">How do I setup my HTML?</a></br>
+                  <a class="maintext" href="">How do I link my HTML and CSS?</a></br>
+                  <a class="maintext" href="">What are the different loop functions in Javascript?</a></br>
+                  <a class="maintext" href="">How do I run a timer on Javascript?</a></br>
+                  <a class="maintext" href="">What is Python?</a></br>
+                </div>
+                <div class="column">
+                    <h2>Ask a Question</h2></br>
+                    <th class="language"> <%- include ('partials/languageList.ejs'); -%> </th></br>
+                    <label for="ask">Question:</label></br>
+                    <input class="hometext" type="text" id="ask" name="ask" /></br>
+                    <button class="button" type="submit">Submit</button>
+                </div>
+              </div>
     </main>
 </body>
 </html>
