@@ -4,8 +4,9 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const LocalStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
+require('dotenv').config()
+const session = require('express-session');
 const PORT = process.env.PORT || 4000;
-
 
 // --------------------------CALL CONTROLLERS-------------------------
 const languageCtrl = require('./controllers/languageController');
@@ -26,11 +27,23 @@ app.use(methodOverride('_method'));
 
 app.use(express.urlencoded({extended: false}));
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${new Date().toLocaleTimeString()}`);
     next();
-})
+});
+
+//Express Session
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false, 
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 * 2 //expire in 2 weeks
+    }
+}));
 
 // ----------------------------ROUTES---------------------------------------
 
@@ -45,5 +58,6 @@ app.use('/questions', questionCtrl);
 // app.use('/solutions', solutionsCtrl);
 
 app.use('/users', userCtrl);
+
 
 app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
