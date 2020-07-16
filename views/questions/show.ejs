@@ -20,7 +20,7 @@
         <button><a href="/questions/<%=`${question._id}`%>/edit">Edit</a></button>
 <div>
     <label for="solution">Think you know the answer?</label>
-    <form action="/questions/<%=question._id%>/solutions?_method=PUT" method="POST">
+    <form action="/questions/<%=question._id%>/solutions" method="POST">
     <textarea id="body" name="solution" placeholder="Enter Answer"></textarea>
         <button type="submit">Submit</button>
     </form>
@@ -32,7 +32,8 @@
     <br>
     <br>
     <!-- <h4 value="savedSolutions">Saved Solutions</h4> -->
-
+    
+    <%= question.solutions %>
     
     
     </main>

@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-let solutions = db.Question.solutions;
+const { populate } = require('../models/User');
+
 
 
 
@@ -44,11 +45,13 @@ router.post('/', (req, res) => {
 
 // -------------QUESTION BY ID PAGE---------------------
 router.get('/:id', (req, res) => {
-    db.Question.findById(req.params.id, (err, foundQuestion) => {
+    db.Question.findById(req.params.id)
+        .populate({path: 'solutions'})
+        .exec((err, foundSolution) => {
         if(err) return console.log(err);
 
         res.render('questions/show', {
-            question: foundQuestion,
+            question: foundSolution,
         });
     });
 });
@@ -115,73 +118,16 @@ router.post('/', (req, res) => {
   
   // ------------------Solutions-----------------------
 
-    // router.put('/solutions')
 
-// router.post('/:id', function(req, res){
-//     db.Question.create(req.body, (err, solutions) => {
-//     let solution = req.body.solution;
-//     solutions = solution;
-//     res.render('questions/:id', {
-//         solutions
-//     });
-// });
-// });
-
-
-router.post('/:id/solutions', (req, res) => {
-    db.Solution.find({}, (err, allSolutions) => {
-        if (err) return console.log(err);
-       res.render('solutions/index', {
-           solution: allSolutions,
-       }); 
-    })  
-});
-
-
-router.get('/:id/solutions/new', (req, res) => {
-    db.Solution.find({}, (err, solutions) => {
-        if (err) return console.log(err);
-       res.render('solutions/new'); 
-    })  
-});
-
-
-router.get('/:id/solutions/show', (req, res) => {
-    db.Solution.findById(req.params.id, (err, foundSolution) => {
-        if(err) return console.log(err);
-
-        res.render('solutions/show', {
-            solution: foundSolution,
-        });
+router.post('/:id/solutions', function(req, res){
+    db.Solution.create(req.body, (err, newSolution) => {
+        db.Question.findByIdAndUpdate(req.params.id, {
+            $push: {solutions: newSolution}
+        }, (err, updatedQuestion) => {
+            res.redirect(`/questions/${req.params.id}`);
+        })
     });
 });
-
-
-
-
-
-
-
-
-
-// router.put('/solutions/:id', (req, res) => {
-//     console.log('New Answer = ', req.body);
-//     db.Question.create(req.body, (err, newSolution) => {
-//         if (err) return console.log(err);
-    
-//         console.log(newSolution);
-//         db.Question.findById(req.body.solutionsId, (err, foundSolution) => {
-//           foundSolution.push(newSolution);
-//           foundSolution.save((err, savedSolutions) => {
-//             console.log('savedSolutions: ', savedSolutions);
-            
-//             res.render('questions/:id', {
-//                 savedSolutions
-//             });
-//           })
-//         })
-//       });
-//     });
 
 
 

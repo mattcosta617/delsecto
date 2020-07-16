@@ -52,14 +52,17 @@ router.post('/', (req, res) => {
 // -------------LANGUAGE BY ID PAGE---------------------
 
 router.get('/:id', (req, res) => {
-    db.Language.findById(req.params.id, (err, foundLanguage) => {
+    db.Language.findById(req.params.id) 
+        .populate({path: 'questions'})
+        .exec((err, foundLanguage) => {
         if(err) return console.log(err);
-       
+
          res.render('languages/show', {
              language: foundLanguage,
-         });
+            });
         });
-    });
+});
+
     
     //-------------------- Post new language to /languages page ---------
     router.post('/', (req, res) => {

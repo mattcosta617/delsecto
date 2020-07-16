@@ -8,7 +8,11 @@ const languageController = new mongoose.Schema({
                 type: String,
         }, solutions: {
                 type: String,
-        }, code: {
+        }, questions: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Question'
+          }],
+        code: {
                  type: String,
         },
     });
