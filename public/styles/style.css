@@ -67,13 +67,14 @@ input {
 #questionIntro {
     position: relative;
     left: 85px;
+    top: -10px;
 }
 
 #howMany {
     display: flex;
     flex-direction: row;
     position: relative;
-    top: 30px;
+    top: 20px;
     left: -90px;
 
 }
