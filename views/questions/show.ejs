@@ -32,7 +32,14 @@
     <br>
     <!-- <h4 value="savedSolutions">Saved Solutions</h4> -->
     
-    <%= question.solutions %>
+    <%= question.solution %>
+    <% question.solutions.forEach((solution) => { %>
+        <a href="/questions/<%=solution._id%>/edit">
+          <h4><%= solution.solution %></h4>
+        </a>
+      <% }); %>
+  
+    
     
     
     </main>
