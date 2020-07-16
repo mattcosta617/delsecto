@@ -7,10 +7,18 @@
 
 }
 
+button:focus { outline: none; }
+
 body {
     background: #373737;
     margin: 0;
     text-align: center;
+}
+
+#welcome {
+    font-size: 40px;
+    margin: 10px;
+    padding: 10px;
 }
 
 .topnav {
@@ -28,10 +36,10 @@ body {
     padding: 20px 16px;
 }
 
-#langLabel {
+/* #langLabel {
     text-align: center;
     text-decoration: underline;
-}
+} */
 
 textarea {
     color: black;
@@ -46,27 +54,38 @@ input {
 }
 
 .questionsTop {
-    position: relative;
-    left: 425px;
-    text-align: center;
-    width: 500px;
-    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #535353;
+    box-shadow: 0 0 0 .8em #373737;
+    /* width: 500px;
+    height: 100px; */
     border: 70px solid rgb(155,155,155);
-    border-radius: 50%;
+    border-radius: 46%;
 }
 #questionIntro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: -30px;
-    text-decoration: underline;
+    position: relative;
+    left: 85px;
 }
 
 #howMany {
-    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 30px;
+    left: -90px;
+
 }
 
+.langName {
+    text-decoration: underline;
+}
 
+.langName:hover {
+    font-size: 40px;
+    text-decoration: bold;
+}
 
 .langPage {
     text-align: center;
@@ -140,14 +159,14 @@ input {
 #question {
     position: relative;
     margin: 25px 50px;
-    padding: 60px 100px;
+    padding: 40px 100px;
     border-style: none;
     border: 0;
 }
 
-.pagetext {
+/* .pagetext {
     margin: 40px;
-}
+} */
 
 .hometext {
     height: 200px;
