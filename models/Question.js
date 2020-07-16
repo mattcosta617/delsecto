@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Solution = require('./Solution');
+const Language = require('./Language');
 
 
 
@@ -11,6 +12,9 @@ const questionsController = new mongoose.Schema({
     }, solutions: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: "Solution"
+    }], languages: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Language"
     }], code: {
              type: String,
     },

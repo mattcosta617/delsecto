@@ -4,11 +4,21 @@
     color: #ffffff;
     text-decoration: none;
     box-sizing: border-box;
+
 }
+
+button:focus { outline: none; }
 
 body {
     background: #373737;
     margin: 0;
+    text-align: center;
+}
+
+#welcome {
+    font-size: 40px;
+    margin: 10px;
+    padding: 10px;
 }
 
 .topnav {
@@ -24,6 +34,67 @@ body {
     text-align: center;
     font-size: 17px;
     padding: 20px 16px;
+}
+
+/* #langLabel {
+    text-align: center;
+    text-decoration: underline;
+} */
+
+textarea {
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.questionsTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #535353;
+    box-shadow: 0 0 0 .8em #373737;
+    /* width: 500px;
+    height: 100px; */
+    border: 70px solid rgb(155,155,155);
+    border-radius: 46%;
+}
+#questionIntro {
+    position: relative;
+    left: 85px;
+}
+
+#howMany {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 30px;
+    left: -90px;
+
+}
+
+.langName {
+    text-decoration: underline;
+}
+
+.langName:hover {
+    font-size: 40px;
+    text-decoration: bold;
+}
+
+.langPage {
+    text-align: center;
+}
+
+.nav-link {
+    position: relative;
+    top: 22px;
+    left: 600px;
 }
 
 .topnav-center a:hover {
@@ -42,9 +113,9 @@ body {
 }
 
 .welcome {
-    margin: 15px 10px 15px 10px;
+    text-align: center;
     font-size: 35px;
-    align-items: stretch;
+    
 }
 
 th {
@@ -71,27 +142,31 @@ input {
     font-size: 18px;
 }
 
-.logbutton {
-    width: 300px;
-    height: 60px;
-    background: black;
-    border-radius: 9px;
-    border: 0;
-    margin: 5px;
-    color: white;
-    font-size: 18px;
-}
+#logbutton {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+} 
 
 #language {
     width: 200px;
     height: 30px;
     color: black;
     border-radius: 5px;
+    margin: 0 10px 20px 10px;;
 }
 
-.pagetext {
-    margin: 40px;
+#question {
+    position: relative;
+    margin: 25px 50px;
+    padding: 40px 100px;
+    border-style: none;
+    border: 0;
 }
+
+/* .pagetext {
+    margin: 40px;
+} */
 
 .hometext {
     height: 200px;
@@ -106,12 +181,33 @@ input {
 .button {
     width: 150px;
     height: 40px;
-    background-color: black;
+    background-color: rgb(83, 83, 83);
     border-radius: 5px;
     border: 0;
     color: white;
     font-size: 18px;
     margin: 5px 0 0 0;
+    box-shadow: 0 3px #666;
+}
+
+.label {
+    font-size: 25px;
+    position: relative;
+    margin: 10pxpx;
+}
+
+.buttons:active {
+    background-color: rgb(29, 29, 29);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+a:hover {
+    font-style: bold;
+    
 }
 
 .button:hover {
@@ -123,6 +219,7 @@ input {
     width: 33.33%;
     padding: 10px;
     height: 300px;
+    text-align: center;
   }
   
 .row:after {
@@ -134,4 +231,5 @@ input {
 .maintext {
     font-size: 30px;
     padding: 0 0 0;
+
 }

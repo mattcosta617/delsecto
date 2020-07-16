@@ -9,11 +9,12 @@
 <body>
     <%- include ('../partials/header.ejs'); -%>
     <main>
-        <h1>Languages</h1>
-
+        <div  class="questionsTop" >
+            <h1 id="langLabel">Languages</h1>
+        </div>
        
     <% languages.forEach(language => { %>
-        <h2>
+        <h2 class="langName">
           <a href="/languages/<%= language._id %>">
             <%= language.language %>
           </a>

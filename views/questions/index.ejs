@@ -10,16 +10,18 @@
     <%- include ('../partials/header.ejs'); -%>
 
     <main class="pagetext">
-        <h1>Questions!</h1>
-        <h4>Total questions asked: <%= questions.length %></h4>
-        
+        <div class="questionsTop">
+            <h1 id="questionIntro">Questions!</h1>
+            <h4 id="howMany">Total questions asked: <%= questions.length %></h4>
+        </div>
       
-        <h1> HTML</h1>
+        <h1 class="langName"><a href="languages/5f0f99029ef3333938e0b81a"> HTML </a></h1>
+
             <% for(let i = 0; i < questions.length; i++) { %>
             <div>
                 <% if(questions[i].languageId === "HTML") { %>
                 <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                   <br> <%= questions[i].question; %>
+                   <br><h3> <%= questions[i].question; %> </h3>
                 </a> 
                 <% }else if(i > questions[5]) {  %>
                       <a href="questions/html">View more</a> 
@@ -28,13 +30,13 @@
                 <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
             </div>
       
-        <h1>CSS</h1>
+        <h1 class="langName"><a href="languages/5f0fb94ef114c33c4f02e958"> CSS </a></h1>
       
         <% for(let i = 0; i < questions.length; i++) { %>
             <div>
                 <% if(questions[i].languageId === "CSS") { %>
                 <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                   <br> <%= questions[i].question; %>
+                   <br> <h3><%= questions[i].question; %> </h3>
                 </a> 
                 <% }else if(i > questions[5]) {  %>
                       <a href="questions/css">View more</a> 
@@ -42,13 +44,13 @@
                   <% }}; %>
                 <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
             </div>
-            <h1>Javascript</h1>
+            <h1 class="langName"> <a href="languages/5f0fb96465954d3cc6ae0a36"> Javascript </a></h1>
       
             <% for(let i = 0; i < questions.length; i++) { %>
                 <div>
                     <% if(questions[i].languageId === "Javascript") { %>
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <br> <%= questions[i].question; %>
+                       <br> <h3> <%= questions[i].question; %> </h3>
                     </a> 
                     <% }else if(i > questions[5]) {  %>
                           <a href="questions/Javascript">View more</a> 
@@ -57,13 +59,13 @@
                     <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
                 </div>
 
-            <h1>MongoDB</h1>
+            <h1 class="langName"><a href="languages/5f0fb96dc485ba3cdafbf18a"> MongoDB </a></h1>
       
             <% for(let i = 0; i < questions.length; i++) { %>
                 <div>
                     <% if(questions[i].languageId === "MongoDB") { %>
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <br> <%= questions[i].question; %>
+                       <br> <h3><%= questions[i].question; %> </h3>
                     </a> 
                     <% }else if(i > questions[5]) {  %>
                           <a href="questions/MongoDB">View more</a> 
@@ -72,13 +74,13 @@
                     <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
                 </div>
 
-            <h1>Python</h1>
+            <h1 class="langName"> <a href="languages/5f0fba2420662b3cfdbf7eab"> Python </a></h1>
       
             <% for(let i = 0; i < questions.length; i++) { %>
                 <div>
                     <% if(questions[i].languageId === "Python") { %>
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <br> <%= questions[i].question; %>
+                       <br> <h3> <%= questions[i].question; %> </h3>
                     </a> 
                     <% }else if(i > questions[5]) {  %>
                           <a href="questions/Python">View more</a> 
@@ -87,16 +89,31 @@
                     <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
                 </div>
 
-            <h1>Express</h1>
+            <h1 class="langName"><a href="languages/5f0fba398e350a3d2177d8ed"> Express </a></h1>
       
             <% for(let i = 0; i < questions.length; i++) { %>
                 <div>
                     <% if(questions[i].languageId === "Express") { %>
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <br> <%= questions[i].question; %>
+                       <br> <h3> <%= questions[i].question; %> </h3>
                     </a> 
                     <% }else if(i > questions[5]) {  %>
                           <a href="questions/Express">View more</a> 
+                        <%  return; %>
+                      <% }}; %>
+                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
+                </div>
+
+                <h1 class="langName"><a href="languages/5f0fd92b3366c0441a306cd3"> GIT </a></h1>
+      
+            <% for(let i = 0; i < questions.length; i++) { %>
+                <div>
+                    <% if(questions[i].languageId === "Git") { %>
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                       <br><h3> <%= questions[i].question; %> </h3>
+                    </a> 
+                    <% }else if(i > questions[5]) {  %>
+                          <a href="questions/Git">View more</a> 
                         <%  return; %>
                       <% }}; %>
                     <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
