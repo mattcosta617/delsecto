@@ -8,11 +8,16 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         minlength: 2,
         maxlength: 50,
-    }, password: {
+    }, 
+    password: {
         type: String, 
         required: true,
         minlength: 4
-    }
+    },
+    questionsAsked: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question'
+      }]
 }, {timestamp: true});
 
 UserSchema.plugin(passportLocalMongoose);
