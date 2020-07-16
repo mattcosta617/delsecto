@@ -39,19 +39,10 @@ router.get('/new', (req, res) => {
 
 
 // //-------------------- Post new question to /questions page ---------
-// router.post('/', (req, res) => {
-//     console.log('Request Body = ', req.body)
+router.post('/', (req, res) => {
+    console.log('Request Body = ', req.body)
     
 
-<<<<<<< HEAD
-//     db.Question.create(req.body, (err, newQuestion) => {
-//         if(err) return console.log(err);
-//         console.log("This is where we are now");
-//             res.redirect('/questions');
-//         })
-// });
-
-=======
     db.Question.create(req.body, (err, newQuestion) => {
         if(err) return console.log(err);
             db.User.findById(req.session.currentUser._id, (err, foundUser) => {
@@ -66,7 +57,7 @@ router.get('/new', (req, res) => {
         });
     });
 });
->>>>>>> 72c990b824fcb8225512879aec9e2526ef39d9b7
+
 
 
 
@@ -127,6 +118,7 @@ router.post('/', (req, res) => {
         });
       });
   });
+  
 
   router.put('/:id', (req, res) => {
       console.log('Updated Question = ', req.body);
