@@ -6,6 +6,7 @@ const LocalStrategy = require('passport-local');
 const passportLocalMongoose = require('passport-local-mongoose');
 require('dotenv').config()
 const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 const PORT = process.env.PORT || 4000;
 
 // --------------------------CALL CONTROLLERS-------------------------
@@ -37,6 +38,9 @@ app.use((req, res, next) => {
 
 //Express Session
 app.use(session({
+    store: new MongoStore ({
+        url: process.env.MONGODB_URI || 'mongodb://localhost:27017/delsecto'
+    }),
     secret: process.env.SESSION_SECRET,
     resave: false, 
     saveUninitialized: false,

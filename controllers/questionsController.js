@@ -3,20 +3,23 @@ const router = express.Router();
 const db = require('../models');
 
 
-
-
-
-
+// db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+//     if(err) return console.log(err);
+//     user: foundUser,
+// });
 
 // -------------------Main Question page------------------
 router.get('/', (req, res) => {
 
     db.Question.find({}, (err, allQuestions) => {
         if (err) return console.log(err);
-
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
         res.render('questions/index', {
             questions: allQuestions,
-        })
+            user: foundUser,
+            });
+        });
     });
 });
 
@@ -25,7 +28,12 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
     db.Question.find({}, (err, questions) => {
         if (err) return console.log(err);
-       res.render('questions/new'); 
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+            res.render('questions/new', {
+                user: foundUser,
+            });
+        });
     })  
 });
 
@@ -36,9 +44,19 @@ router.post('/', (req, res) => {
 
     db.Question.create(req.body, (err, newQuestion) => {
         if(err) return console.log(err);
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+            
+        // db.User.findById(req.body.userId, (err, foundUser) => {
+        //     foundUser.questions.push(newQuestion);
+        //     foundUser.save((err, savedUser) => {
+        //       console.log('savedUser: ', savedUser);
 
-            res.redirect('/questions');
+            res.redirect('/questions', {
+                user: foundUser,
+            });
         })
+    });
 });
 
 
@@ -49,9 +67,12 @@ router.get('/:id', (req, res) => {
         .populate({path: 'solutions'})
         .exec((err, foundSolution) => {
         if(err) return console.log(err);
-
-        res.render('questions/show', {
-            question: foundSolution,
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+            res.render('questions/show', {
+                question: foundSolution,
+                user: foundUser,
+            });
         });
     });
 });
@@ -82,9 +103,14 @@ router.post('/', (req, res) => {
       db.Question.findById(req.params.id, (err, editQuestion) => {
           if(err) return console.log(err);
 
-          res.render('questions/edit', {
-              question: editQuestion
+          db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+    
+            res.render('questions/edit', {
+              question: editQuestion,
+              user: foundUser,
           });
+        });
       });
   });
 
@@ -128,7 +154,6 @@ router.post('/:id/solutions', function(req, res){
         })
     });
 });
-
 
 
 module.exports = router;
