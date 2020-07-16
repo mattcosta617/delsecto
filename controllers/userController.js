@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
 const db = require('../models');
+const session = require('express-session');
 
 //Login
 router.get('/', (req, res) => {
@@ -16,13 +17,17 @@ router.get('/register', (req, res) => {
 
 //Profile home
 router.get('/show', (req, res) => {
-    db.User.findById(req.params.id, (err, foundUser) => {
+    console.log(req.session);
+
+    db.User.findOne(req.params.username, (err, foundUser) => {
         if(err) return console.log(err);
         res.render('users/show', {
             user: foundUser,
         });
     });
 });
+
+
 
 router.post('/', (req, res) => {
   db.User.findOne({username: req.body.username}, (err, foundUser) => {
@@ -102,5 +107,9 @@ router.get('/logout', (req, res) => {
 //     console.log(err); console.log(foundUser); process.exit();
 // });
 
+// db.User.find((err, foundUser) => {if (err)
+//     console.log(err); console.log(foundUser); process.exit();
+// });
+console.log(session);
 
 module.exports = router;

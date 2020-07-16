@@ -28,6 +28,7 @@ body {
     background: #414141; 
     height: 60px;  
 }
+
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav_centered */
 .topnav .link {
     float: left;
@@ -35,11 +36,6 @@ body {
     font-size: 17px;
     padding: 20px 16px;
 }
-
-/* #langLabel {
-    text-align: center;
-    text-decoration: underline;
-} */
 
 textarea {
     color: black;
@@ -232,4 +228,23 @@ a:hover {
     font-size: 30px;
     padding: 0 0 0;
 
+}
+
+.container {
+
+    width: 1010px;
+    margin: 0 auto;
+}
+.first {
+    width: 400px;
+    height: 100px;
+    float: left;
+    background: black;
+    margin: 0 10px 0 0;
+}
+.second {
+    width: 600px;
+    float: left;
+    height: 100px;
+    background: gray;
 }
