@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Solution"
 }]
-}, {timestamp: true});
+}, {timestamps: true});
 
 UserSchema.plugin(passportLocalMongoose);
 

@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
           _id: foundUser._id,
           username: foundUser.username,
           isLoggedIn: true,
-          questions: foundUser
+          questions: foundUser.questionsAsked
         }
 
         req.session.currentUser = currentUser;
@@ -82,6 +82,7 @@ router.post('/register', (req, res) => {
         const newUser = {
           username,
           password: hash, //hash = hide password
+          questions,
         };
 
         db.User.create(newUser, (err, createdUser) => {
@@ -114,6 +115,6 @@ router.get('/logout', (req, res) => {
 // db.User.find((err, foundUser) => {if (err)
 //     console.log(err); console.log(foundUser); process.exit();
 // });
-console.log(session);
+// console.log(session);
 
 module.exports = router;

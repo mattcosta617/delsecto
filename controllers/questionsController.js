@@ -2,12 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-
-// db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-//     if(err) return console.log(err);
-//     user: foundUser,
-// });
-
 // -------------------Main Question page------------------
 router.get('/', (req, res) => {
 

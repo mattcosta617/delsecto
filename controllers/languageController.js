@@ -66,6 +66,9 @@ router.get('/:id', (req, res) => {
         .populate({path: "questions"})
         .exec((err, foundLanguage) => {
         if(err) return console.log(err);
+        console.log(foundLanguage);
+
+        if(err) return console.log(err);
         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
             

@@ -17,7 +17,9 @@
             </div>
             <div class="second">        
                 <h2>Questions Asked</h2>
-                <p> <%= user.questionsAsked %></p>
+                <% user.questions.forEach((pizza) => { %>
+                    <h3> <%= pizza.question %>  </h3>
+               <% }) %>
             </div>
         </div>
     </div>
