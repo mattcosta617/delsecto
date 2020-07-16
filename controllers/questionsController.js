@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const { populate } = require('../models/User');
+
 
 
 
@@ -121,7 +121,7 @@ router.post('/', (req, res) => {
 
 router.post('/:id/solutions', function(req, res){
     db.Solution.create(req.body, (err, newSolution) => {
-        db.Question.findByIdAndUpdate(req.params.id, {
+        db.Question.findByIdAndUpdate(req.params, {
             $push: {solutions: newSolution}
         }, (err, updatedQuestion) => {
             res.redirect(`/questions/${req.params.id}`);

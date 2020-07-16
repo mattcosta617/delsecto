@@ -117,6 +117,18 @@ router.get('/:id', (req, res) => {
         res.redirect('/languages');
     });
   });
+
+
+  router.post('/:id', function(req, res){
+    db.Question.find(req.body, (err, foundQuestion) => {
+        db.Language.findByIdAndUpdate(req.params.id, {
+            $push: {questions: foundQuestion}
+        }, (err, updatedQuestion) => {
+            res.redirect(`/languages/${req.params.id}`);
+        })
+    });
+});
+
   
 
 

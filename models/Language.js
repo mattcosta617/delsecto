@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Question = require('./Question');
 
 
 const languageController = new mongoose.Schema({
@@ -10,7 +11,7 @@ const languageController = new mongoose.Schema({
                 type: String,
         }, questions: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'Question'
+            ref: "Question"
           }],
         code: {
                  type: String,
