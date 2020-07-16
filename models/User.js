@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const passportLocalMongoose = require("passport-local-mongoose");
+const Question = require('./Question')
+const Solution = require('./Solution');
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -8,16 +10,17 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         minlength: 2,
         maxlength: 50,
-    }, 
-    password: {
+    }, password: {
         type: String, 
         required: true,
         minlength: 4
-    },
-    questionsAsked: [{
+    }, questions: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Question'
-      }]
+      }], solutions: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Solution"
+}]
 }, {timestamp: true});
 
 UserSchema.plugin(passportLocalMongoose);
