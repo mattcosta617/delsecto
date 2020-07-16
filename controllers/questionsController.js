@@ -44,18 +44,17 @@ router.post('/', (req, res) => {
 
     db.Question.create(req.body, (err, newQuestion) => {
         if(err) return console.log(err);
-        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-            if(err) return console.log(err);
-            
-        // db.User.findById(req.body.userId, (err, foundUser) => {
-        //     foundUser.questions.push(newQuestion);
-        //     foundUser.save((err, savedUser) => {
-        //       console.log('savedUser: ', savedUser);
+            db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+                if(err) return console.log(err);
+                foundUser.question.push(newQuestion);
+                foundUser.save((err, savedUser) => {
+                console.log('savedUser: ', savedUser);
 
-            res.redirect('/questions', {
-                user: foundUser,
+                res.redirect('/questions', {
+                    user: foundUser,
+                });
             });
-        })
+        });
     });
 });
 
