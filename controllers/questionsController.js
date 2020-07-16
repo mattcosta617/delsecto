@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const { populate } = require('../models/User');
+
+
 
 
 
@@ -42,11 +45,13 @@ router.post('/', (req, res) => {
 
 // -------------QUESTION BY ID PAGE---------------------
 router.get('/:id', (req, res) => {
-    db.Question.findById(req.params.id, (err, foundQuestion) => {
+    db.Question.findById(req.params.id)
+        .populate({path: 'solutions'})
+        .exec((err, foundSolution) => {
         if(err) return console.log(err);
 
         res.render('questions/show', {
-            question: foundQuestion,
+            question: foundSolution,
         });
     });
 });
@@ -111,6 +116,19 @@ router.post('/', (req, res) => {
     });
   });
   
+  // ------------------Solutions-----------------------
+
+
+router.post('/:id/solutions', function(req, res){
+    db.Solution.create(req.body, (err, newSolution) => {
+        db.Question.findByIdAndUpdate(req.params.id, {
+            $push: {solutions: newSolution}
+        }, (err, updatedQuestion) => {
+            res.redirect(`/questions/${req.params.id}`);
+        })
+    });
+});
+
 
 
 module.exports = router;

@@ -13,13 +13,28 @@
         <h1><%= question.languageId %> Question</h1>
 
         <a href="/questions/<%=`${question._id}`%>"> 
-            <%= question.question; %>
+           <h2 style="text-decoration: none"> <%= question.question; %> </h2>
             
         </a><br>
         <button><a href="/questions/<%=`${question._id}`%>/edit">Edit</a></button>
-        <div>
-          <h3>  solutions:</h3>
-        </div>
+<div>
+    <label for="solution">Think you know the answer?</label>
+    <form action="/questions/<%=question._id%>/solutions" method="POST">
+    <textarea id="body" name="solution" placeholder="Enter Answer"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <h4 value="savedSolutions">Saved Solutions</h4> -->
+    
+    <%= question.solutions %>
+    
+    
     </main>
 </body>
 </html>

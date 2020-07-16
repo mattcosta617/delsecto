@@ -8,6 +8,11 @@
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
-    
+
+   <h1> <%= language.language %> </h1>
+
+   <button><a href="/languages/<%=`${language._id}`%>/edit">Edit</a></button>
+
+   
 </body>
 </html>

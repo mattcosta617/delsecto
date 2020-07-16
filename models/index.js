@@ -12,7 +12,7 @@ mongoose.connect(connectionString, {
 
 
 module.exports = {
-  Ask: require('./Ask'),
+  Solution: require('./Solution'),
   Language: require('./Language'),
   Question: require('./Question'),
   User: require('./User'),
