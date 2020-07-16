@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost:27017/express-blog-12';
+const connectionString = 'mongodb://localhost:27017/delsecto';
 
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
@@ -12,7 +12,7 @@ mongoose.connect(connectionString, {
 
 
 module.exports = {
-  Ask: require('./Ask'),
+  Solution: require('./Solution'),
   Language: require('./Language'),
   Question: require('./Question'),
   User: require('./User'),

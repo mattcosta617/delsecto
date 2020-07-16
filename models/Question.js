@@ -1,34 +1,22 @@
 const mongoose = require('mongoose');
+const Solution = require('./Solution');
+const Language = require('./Language');
+
 
 
 const questionsController = new mongoose.Schema({
-    question: {
-        type: String,
+        question: {
+            type: String,
     }, languageId: {
-        type: String,
-    }, languages: {
-        HTML: {
             type: String,
-        },
-        CSS: {
-            type: String,
-        },
-        Javascript: {
-            type: String,
-        },
-        Python: {
-            type: String,
-        },
-        Express: {
-            type: String,
-        },
-        MongoDB: {
-            type: String,
-        },
-    }, solution: {
-        type: String,
-    }, code: {
-        type: String,
+    }, solutions: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Solution"
+    }], languages: [{
+        type: mongoose.Schema.Types.ObjectId,
+            ref: "Language"
+    }], code: {
+             type: String,
     },
 }, {timestamps: true});
 

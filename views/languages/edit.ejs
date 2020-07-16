@@ -3,12 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
+
+
+<main>
+    <form action="/languages/<%=language._id %>?_method=PUT" method="POST">
+    
+        <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
+    
+        <div>
+          <label for="language">Language</label>
+          <textarea id="body" name="language"><%= language.language %></textarea>
+        </div>
+        <button type="submit">Update Language</button>
+        
+      </form>
+      <%- include ('../partials/deleteButton.ejs', {url: `/languages/${language.id}`}); -%>
+    </main>
     
 </body>
 </html>

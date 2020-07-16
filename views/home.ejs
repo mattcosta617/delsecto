@@ -3,47 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>DELSECTO</title>
 </head>
 <body>
     <%- include ('partials/header.ejs'); -%>
     <main>
-        <p class="welcome">Delsecto Is A Community For Debugging</p>
-        <table >
-            <tr>
-                <th><h3>Choose A Language</h3></th>
-                <th><h3>Choose A Question</h3></th>
-                <th><h3>Ask A Question</h3></th>
-            </tr>
-            <tr>
-                <th><a href="">HTML</a></th>
-                <th><a href="/questions/5f0d2b189b8853ed91e18b90">How do I write an HTML boilerplate?</a></th>
-                <th class="language"> <%- include ('partials/languageList.ejs'); -%> </th>
-            </tr>    
-            <tr>
-                <th><a href="">CSS</a></th>
-                <th><a href="questions/5f0d2b2b9b8853ed91e18b91">How do I change the color of my background to orange?</a></th>
-                <th>
-                    <label for="ask">Question:</label>
-                    <input type="text" id="ask" name="ask" />
-                    <button type="submit">Submit</button>
-                </th>
-            </tr>
-            <tr>
-                <th><a href="">Javascript</a></th>
-                <th><a href="questions/5f0d2b6a9b8853ed91e18b92">How do I use a for loop?</a></th>
-            </tr>
-            <tr>
-                <th><a href="">MongoDB</a></th>
-                <th><a href="questions/5f0d2bcf9b8853ed91e18b93">How do you call on a database?</a></th>
-            </tr>
-            <tr>
-                <th><a href="">Python</a></th>
-                <th><a href="questions/5f0d2bf79b8853ed91e18b94">How do I execute a while loop in Python?</a></th>
-            </tr>
-            
-        </table>
+        <h1 class="questionsTop" id="welcome">Delsecto Is A Community For Debugging</h1>
+            <div class="row">
+                <div class="column" id="langName">
+                  <h2>Choose a Language</h2>
+                  <a class="maintext" href="languages/5f0fb94ef114c33c4f02e958">CSS</a></br>
+                  <a class="maintext" href="languages/5f0fb96465954d3cc6ae0a36">Javascript</a></br>
+                  <a class="maintext" href="languages/5f0f99029ef3333938e0b81a">HTML</a></br>
+                  <a class="maintext" href="languages/5f0fb96dc485ba3cdafbf18a">MongoDB</a></br>
+                  <a class="maintext" href="languages/5f0fba2420662b3cfdbf7eab">Python</a></br>
+                  <a class="maintext" href="languages/5f0fba398e350a3d2177d8ed">Express</a></br>
+                </div>
+                <div class="column">
+                  <h2>Choose a Question</h2>
+                  <a class="maintext" href="questions/5f10bcd4e2faf06bcbf99e16">How do I setup my HTML?</a></br>
+                  <a class="maintext" href="questions/5f10bcf3e2faf06bcbf99e17">How do I link my HTML and CSS?</a></br>
+                  <a class="maintext" href="questions/5f10bd14e2faf06bcbf99e18">What are the different loop functions in Javascript?</a></br>
+                  <a class="maintext" href="questions/5f10bd27e2faf06bcbf99e1a">How do I run a timer on Javascript?</a></br>
+                  <a class="maintext" href="questions/5f10bd3ae2faf06bcbf99e1b">What is Python?</a></br>
+                </div>
+                <div class="column">
+        
+                    <h2>Ask a Question</h2></br>
+                    <button class="button" type="submit"><a href="questions/new">Go on, Ask!</a></button>
+                </div>
+              </div>
     </main>
 </body>
 </html>

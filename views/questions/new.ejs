@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css"/>    
+    <link rel="stylesheet" type="text/css" href="/styles/style.css"/>
     <title>Ask</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
-    <h1>Ask A Question!</h1>
-    <form action="/questions" method="POST">
+    <div class="questionsTop">
+        <h1>Ask A Question!</h1>
+    </div>
+    <form class="pagetext" action="/questions" method="POST">
                
         
-        <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
         
-        <div>  
+        
+    <div id="askAlign">  
            
-          <label for="ask">Question:</label></br>
+          <label for="ask" class="label">Question</label></br>
+          <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
           <textarea type="text" id="question" name="question"></textarea>
         </div>
-        <button type="submit">Submit</button>
+        <button class="button" type="submit">Submit</button>
+    
       </form>
 </body>
 </html>

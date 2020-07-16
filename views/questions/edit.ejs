@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
 
-<h1>Edit Your Question</h1>
+<h1>Edit Your <%= question.languageId %> Question</h1>
 
-<%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
 
 
 <main>
@@ -25,7 +24,9 @@
       <textarea id="body" name="question"><%= question.question %></textarea>
     </div>
     <button type="submit">Update Question</button>
+    
   </form>
+  <%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
 </main>
 </body>
 </html>

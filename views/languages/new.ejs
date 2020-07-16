@@ -3,10 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
+
+    <h1>Language not listed? Add it!</h1>
+    <form action="/languages" method="POST">
+        <div>  
+           
+          <label for="language">New Language:</label></br>
+          <textarea type="text" id="language" name="language"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
 </body>
 </html>

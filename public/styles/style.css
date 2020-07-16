@@ -3,20 +3,28 @@
     font-style: normal;
     color: #ffffff;
     text-decoration: none;
+    box-sizing: border-box;
+
 }
 
+button:focus { outline: none; }
+
 body {
-    background: #373737;
+    background: rgb(55,55,55);
+    background: linear-gradient(90deg, rgba(55,55,55,1) 0%, rgba(125,124,124,1) 60%, rgba(169,171,171,1) 100%);
     margin: 0;
+    text-align: center;
 }
 
 .topnav {
+    text-shadow: 0 4px rgb(37, 37, 37);
     width: 100%;
     position: relative;
     overflow: hidden;
     background: #414141; 
     height: 60px;  
 }
+
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_topnav_centered */
 .topnav .link {
     float: left;
@@ -25,11 +33,135 @@ body {
     padding: 20px 16px;
 }
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 72c990b824fcb8225512879aec9e2526ef39d9b7
+textarea {
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+input {
+    color: black;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#topLog {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 120px;
+}
+
+#profileIntro {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#signup {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#questShow {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+}
+
+.questionsTop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(55,55,55);
+    background: linear-gradient(90deg, rgba(55,55,55,1) 0%, rgba(125,124,124,1) 60%, rgba(169,171,171,1) 100%);
+    box-shadow: 0 0 0 10px rgb(55,55,55);;
+    border: 6px solid rgb(160,163,161);
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    text-shadow: 0 4px rgb(55,55,55);
+}
+
+.questSpace {
+    padding: 10px;
+    margin: 15px;
+    font-size: 15px;
+}
+
+.questSpace:hover {
+    font-size: 20px;
+    text-shadow: 0 4px rgb(55,55,55);
+}
+
+#askAlign {
+    margin: 35px;
+}
+
+#questionIntro {
+    position: relative;
+    left: 85px;
+    top: -10px;
+}
+
+#howMany {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 20px;
+    left: -90px;
+
+}
+
+#langName {
+    position: relative;
+    text-decoration: underline;
+    
+}
+
+
+
+.langName {
+    position: relative;
+    text-decoration: underline;
+}
+
+.langName:hover {
+    font-size: 40px;
+    text-decoration: bold;
+    box-shadow: 0 4px black;
+    text-shadow: 0 4px rgb(55,55,55);
+  
+}
+
+.langPage {
+    text-align: center;
+}
+
+.solutions {
+    font-size: 20px;
+    color: #fff;
+}
+
+.nav-link {
+    position: relative;
+    top: 22px;
+    left: 600px;
+}
+
 .topnav-center a:hover {
+    text-shadow: 0 4px rgb(55,55,55);
     background: #373737;
   }
 
 .logo {
+    text-shadow: 0 6px rgb(32, 32, 32);
     float: left;
     font-size: 35px;
     margin: 10px;
@@ -40,14 +172,145 @@ body {
     margin: 20px;
 }
 
-.welcome {
-    margin: 15px 10px 15px 10px;
-    font-size: 35px;
-    align-items: stretch;
+#welcome {
+    padding: 20px;
+    margin-top: 0;
+    text-shadow: 0 4px rgb(55,55,55);
 }
 
 th {
     text-align: left;
     padding: 15px;
     font-size: 22px
+}
+
+input {
+    color: black;
+}
+
+.log {
+    text-align: center;
+}
+
+.loginput {
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    border-radius: 8px;
+    border: 0;
+    margin: 5px;
+    font-size: 18px;
+}
+
+#logbutton {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 5px;
+} 
+
+#language {
+    width: 200px;
+    height: 30px;
+    color: black;
+    border-radius: 5px;
+    margin: 0 10px 20px 10px;;
+}
+
+#question {
+    position: relative;
+    margin: 25px 50px;
+    padding: 40px 100px;
+    border-style: none;
+    border: 0;
+}
+
+.hometext {
+    height: 200px;
+    background-color: black;
+    color: white;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px;
+    margin: 10px 0 10px 0;
+}
+
+.button {
+    width: 150px;
+    height: 40px;
+    background-color: rgb(83, 83, 83);
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    margin: 5px 0 0 0;
+    box-shadow: 0 3px #666;
+}
+
+.label {
+    font-size: 25px;
+    position: relative;
+    margin: 10pxpx;
+}
+
+.buttons:active {
+    background-color: rgb(29, 29, 29);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.button:hover {
+    text-shadow: 0 4px rgb(55,55,55);
+    background-color: rgb(8, 8, 8);
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px;
+    text-align: center;
+  }
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+
+.maintext {
+    font-size: 30px;
+    padding: 0 0 0;
+}
+
+<<<<<<< HEAD
+.maintext:hover {
+    text-shadow: 0 4px rgb(55,55,55);
+    font-size: 40px;
+    box-shadow: 0 4px black;
+=======
+}
+
+.container {
+
+    width: 1010px;
+    margin: 0 auto;
+}
+.first {
+    width: 400px;
+    height: 100px;
+    float: left;
+    background: black;
+    margin: 0 10px 0 0;
+}
+.second {
+    width: 600px;
+    float: left;
+    height: 100px;
+    background: gray;
+>>>>>>> 72c990b824fcb8225512879aec9e2526ef39d9b7
 }

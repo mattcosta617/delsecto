@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>Languages</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
     <main>
-        <h1>Languages</h1>
-    <a href=""><h3>HTML</h3></a>
-        <a href=""><h3>CSS</h3></a>
-        <a href=""><h3>Javascript</h3></a>
-        <a href=""><h3>Mongo</h3></a>
-        <a href=""><h3>Mongoose</h3></a>
-        <a href=""><h3>Python</h3></a>
-        <a href=""><h3>Git</h3></a>
-
+        <div  class="questionsTop" >
+            <h1 id="langLabel">Languages</h1>
+        </div>
        
-             
-           
-            </div>
+    <% languages.forEach(language => { %>
+        <h2 class="langName">
+          <a href="/languages/<%= language._id %>">
+            <%= language.language %>
+          </a>
+        </h2>
+      <% }) %>
+    
     </main>
 </body>
 </html>
