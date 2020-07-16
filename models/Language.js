@@ -9,13 +9,13 @@ const languageController = new mongoose.Schema({
                 type: String,
         }, solutions: {
                 type: String,
-        }, questions: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Question"
-          }],
+        },
         code: {
                  type: String,
-        },
+        }, questions: [{
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Question",
+        }],
     });
 
 const Language = mongoose.model('Language', languageController);

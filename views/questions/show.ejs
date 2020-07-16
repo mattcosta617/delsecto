@@ -10,7 +10,7 @@
     <%- include ('../partials/header.ejs'); -%>
 
     <main class="pagetext">
-        <h1><%= question.languageId %> Question</h1>
+        <h1 class="questionsTop" id="questShow"><%= question.languageId %> Question</h1>
 
         <a href="/questions/<%=`${question._id}`%>"> 
            <h2 style="text-decoration: none"> <%= question.question; %> </h2>
@@ -34,7 +34,7 @@
     
     <%= question.solution %>
     <% question.solutions.forEach((solution) => { %>
-        <a href="/questions/<%=solution._id%>/edit">
+        <a href="/questions/<%=solution._id%>/solutions">
           <h4><%= solution.solution %></h4>
         </a>
       <% }); %>

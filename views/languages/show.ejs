@@ -11,6 +11,10 @@
 
    <h1> <%= language.language %> </h1>
 
+   <% language.questions.forEach((pizza) => { %>
+       <h3> <%= pizza.question %>  </h3>
+  <% }) %>
+
 
 
    <button class="button"><a href="/languages/<%=`${language._id}`%>/edit">Edit</a></button>
