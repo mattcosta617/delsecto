@@ -1,67 +1,106 @@
 const express = require('express');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 const db = require('../models');
-const User = require('../models/User');
-const passport = require('passport');
-const bodyParser = require('body-parser');
-const LocalStrategy = require('passport-local');
-const passportLocalMongoose = require('passport-local-mongoose');
 
-router.use(bodyParser.urlencoded({extended:true}));
+//Login
+router.get('/', (req, res) => {
+  res.render('users/login');
+});
 
+
+//Register
 router.get('/register', (req, res) => {
-    res.render('users/register');
+  res.render('users/register');
 });
-router.use(passport.initialize());
-router.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
-
+//Profile home
 router.get('/show', (req, res) => {
-    res.render('users/show');
-});
-
-router.post('/register', (req, res) => {
-    db.User.register(new db.User({
-        username:req.body.username
-    }),
-        req.body.password,(err, user) => {
-           if(err) {
-                console.log(err);
-                return res.render('users/register');
-            }
-            passport.authenticate('local')(req, res, function(){
-                res.redirect('users/show');
-           }); 
+    db.User.findById(req.params.id, (err, foundUser) => {
+        if(err) return console.log(err);
+        res.render('users/show', {
+            user: foundUser,
         });
     });
-
-//login
-router.get('/', (req, res) => {
-    res.render('users/login');
 });
 
-router.post('/', passport.authenticate('local',{
-    successRedirect:'/users/show',
-    failureRedirect:'/users'
-}),function(req, res){
-    res.send("User is "+ req.user.id);
-});
+router.post('/', (req, res) => {
+  db.User.findOne({username: req.body.username}, (err, foundUser) => {
+    if (err) return console.log(err);
 
-//logout
-router.get('/logout', function(req, res){
-    req.logout();
-    res.redirect('/');
-});
-
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
+    if (!foundUser) {
+      return res.send('No User Found');
     }
-    res.redirect('users/login');
-}
+
+    bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
+      if (err) return console.log(err);
+
+      if (isMatch) {
+
+        const currentUser = {
+          _id: foundUser._id,
+          username: foundUser.username,
+          isLoggedIn: true,
+        }
+
+        req.session.currentUser = currentUser;
+        res.redirect('/users/show');
+        console.log(currentUser);
+      } else {
+
+        return res.send('Passwords do not match');
+      }
+    });
+  });
+});
+
+
+// Register Create
+router.post('/register', (req, res) => {
+  db.User.findOne({username: req.body.username}, (err, foundUser) => {
+    if (err) return console.log(err);
+
+    if (foundUser) return console.log('User Already Exsists');
+
+    bcrypt.genSalt(10, (err, salt)=> {
+      if (err) return console.log(err);
+
+      bcrypt.hash(req.body.password, salt, (err, hash) => {
+        if (err) return console.log(err);
+
+        const { username, password } = req.body;
+
+        const newUser = {
+          username,
+          password: hash, //hash = hide password
+        };
+
+        db.User.create(newUser, (err, createdUser) => {
+          if (err) return console.log(err);
+      
+          res.redirect('/users');
+        });
+      });
+    });
+  });
+});
+
+
+//Logout
+router.get('/logout', (req, res) => {
+  if (!req.session.currentUser) return res.send('You must be logged in to logout');
+
+  req.session.destroy((err) => {
+    if (err) return console.log(err);
+
+    res.redirect('/users');
+  });
+});
+
+//Check Users That Have Been Created
+// db.User.find((err, foundUser) => {if (err)
+//     console.log(err); console.log(foundUser); process.exit();
+// });
 
 
 module.exports = router;
