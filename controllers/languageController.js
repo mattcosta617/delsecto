@@ -6,10 +6,14 @@ router.get('/', (req, res) => {
 
     db.Language.find({}, (err, allLanguages) => {
         if(err) return console.log(err);
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
 
-        res.render('languages/index', {
-             languages: allLanguages,
-        })
+            res.render('languages/index', {
+                languages: allLanguages,
+                user: foundUser,
+            })
+        });
     });
 });
 
@@ -18,9 +22,14 @@ router.get('/', (req, res) => {
 router.get('/new', (req, res) => {
     db.Language.find({}, (err, languages) => {
         if(err) return console.log(err);
-        
-        res.render('languages/new');
-    })
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+            
+            res.render('languages/new', {
+                user: foundUser,
+            });
+        })
+    });
 });
 
 
@@ -56,11 +65,16 @@ router.get('/:id', (req, res) => {
         .populate({path: 'questions'})
         .exec((err, foundLanguage) => {
         if(err) return console.log(err);
-
-         res.render('languages/show', {
-             language: foundLanguage,
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+            
+        
+            res.render('languages/show', {
+                language: foundLanguage,
+                user: foundUser,
             });
         });
+    });
 });
 
     
@@ -83,10 +97,15 @@ router.get('/:id', (req, res) => {
   router.get('/:id/edit', (req, res) => {
       db.Language.findById(req.params.id, (err, editLanguage) => {
           if(err) return console.log(err);
-
-          res.render('languages/edit', {
+          db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+            if(err) return console.log(err);
+            
+        
+            res.render('languages/edit', {
+              user: foundUser,
               language: editLanguage
           });
+        });
       });
   });
 
