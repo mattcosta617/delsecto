@@ -4,6 +4,7 @@ const router = express.Router();
 const db = require('../models');
 const session = require('express-session');
 
+
 //Login
 router.get('/', (req, res) => {
   res.render('users/login');
@@ -15,17 +16,7 @@ router.get('/register', (req, res) => {
   res.render('users/register');
 });
 
-//Profile home
-router.get('/show', (req, res) => {
-    console.log(req.session);
 
-    db.User.findOne(req.params.username, (err, foundUser) => {
-        if(err) return console.log(err);
-        res.render('users/show', {
-            user: foundUser,
-        });
-    });
-});
 
 
 
@@ -46,6 +37,7 @@ router.post('/', (req, res) => {
           _id: foundUser._id,
           username: foundUser.username,
           isLoggedIn: true,
+          questions: foundUser
         }
 
         req.session.currentUser = currentUser;
@@ -57,6 +49,18 @@ router.post('/', (req, res) => {
       }
     });
   });
+});
+
+//Profile home
+router.get('/show', (req, res) => {
+    console.log(req.session);
+
+    db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        if(err) return console.log(err);
+        res.render('users/show', {
+            user: foundUser,
+        });
+    });
 });
 
 
