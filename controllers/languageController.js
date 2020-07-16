@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
             foundLanguage.save((err, savedLanguages) => {
                 console.log('savedLanguages: ', savedLanguages);
                 
-                res.redirect('languages/show');
+                res.redirect('/languages/show');
             })
         })
     });
@@ -49,20 +49,24 @@ router.post('/', (req, res) => {
 
 
 
+
 // -------------LANGUAGE BY ID PAGE---------------------
 
 router.get('/:id', (req, res) => {
     db.Language.findById(req.params.id) 
-        .populate({path: 'questions'})
+        .populate({path: "questions"})
         .exec((err, foundLanguage) => {
-        if(err) return console.log(err);
 
+        if(err) return console.log(err);
+       
+        console.log(foundLanguage);
          res.render('languages/show', {
              language: foundLanguage,
-            });
+         });
         });
-});
-
+     
+    });
+    
     
     //-------------------- Post new language to /languages page ---------
     router.post('/', (req, res) => {
@@ -117,18 +121,6 @@ router.get('/:id', (req, res) => {
         res.redirect('/languages');
     });
   });
-
-
-  router.post('/:id', function(req, res){
-    db.Question.find(req.body, (err, foundQuestion) => {
-        db.Language.findByIdAndUpdate(req.params.id, {
-            $push: {questions: foundQuestion}
-        }, (err, updatedQuestion) => {
-            res.redirect(`/languages/${req.params.id}`);
-        })
-    });
-});
-
   
 
 

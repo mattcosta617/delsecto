@@ -10,18 +10,14 @@
 button:focus { outline: none; }
 
 body {
-    background: #373737;
+    background: rgb(55,55,55);
+    background: linear-gradient(90deg, rgba(55,55,55,1) 0%, rgba(125,124,124,1) 60%, rgba(169,171,171,1) 100%);
     margin: 0;
     text-align: center;
 }
 
-#welcome {
-    font-size: 40px;
-    margin: 10px;
-    padding: 10px;
-}
-
 .topnav {
+    text-shadow: 0 4px rgb(37, 37, 37);
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -36,10 +32,6 @@ body {
     padding: 20px 16px;
 }
 
-/* #langLabel {
-    text-align: center;
-    text-decoration: underline;
-} */
 
 textarea {
     color: black;
@@ -47,23 +39,67 @@ textarea {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+
+
 input {
     color: black;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#topLog {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 120px;
+}
+
+#profileIntro {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#signup {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+#questShow {
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+
+}
+
 .questionsTop {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #535353;
-    box-shadow: 0 0 0 .8em #373737;
-    /* width: 500px;
-    height: 100px; */
-    border: 70px solid rgb(155,155,155);
-    border-radius: 46%;
+    background: rgb(55,55,55);
+    background: linear-gradient(90deg, rgba(55,55,55,1) 0%, rgba(125,124,124,1) 60%, rgba(169,171,171,1) 100%);
+    box-shadow: 0 0 0 10px rgb(55,55,55);;
+    border: 6px solid rgb(160,163,161);
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 30%;
+    text-shadow: 0 4px rgb(55,55,55);
 }
+
+.questSpace {
+    padding: 10px;
+    margin: 15px;
+    font-size: 15px;
+}
+
+.questSpace:hover {
+    font-size: 20px;
+    text-shadow: 0 4px rgb(55,55,55);
+}
+
+#askAlign {
+    margin: 35px;
+}
+
 #questionIntro {
     position: relative;
     left: 85px;
@@ -79,17 +115,34 @@ input {
 
 }
 
+#langName {
+    position: relative;
+    text-decoration: underline;
+    
+}
+
+
+
 .langName {
+    position: relative;
     text-decoration: underline;
 }
 
 .langName:hover {
     font-size: 40px;
     text-decoration: bold;
+    box-shadow: 0 4px black;
+    text-shadow: 0 4px rgb(55,55,55);
+  
 }
 
 .langPage {
     text-align: center;
+}
+
+.solutions {
+    font-size: 20px;
+    color: #fff;
 }
 
 .nav-link {
@@ -99,10 +152,12 @@ input {
 }
 
 .topnav-center a:hover {
+    text-shadow: 0 4px rgb(55,55,55);
     background: #373737;
   }
 
 .logo {
+    text-shadow: 0 6px rgb(32, 32, 32);
     float: left;
     font-size: 35px;
     margin: 10px;
@@ -113,10 +168,10 @@ input {
     margin: 20px;
 }
 
-.welcome {
-    text-align: center;
-    font-size: 35px;
-    
+#welcome {
+    padding: 20px;
+    margin-top: 0;
+    text-shadow: 0 4px rgb(55,55,55);
 }
 
 th {
@@ -165,10 +220,6 @@ input {
     border: 0;
 }
 
-/* .pagetext {
-    margin: 40px;
-} */
-
 .hometext {
     height: 200px;
     background-color: black;
@@ -206,12 +257,8 @@ input {
     background: none;
 }
 
-a:hover {
-    font-style: bold;
-    
-}
-
 .button:hover {
+    text-shadow: 0 4px rgb(55,55,55);
     background-color: rgb(8, 8, 8);
 }
 
@@ -229,8 +276,15 @@ a:hover {
     clear: both;
 }
 
+
+
 .maintext {
     font-size: 30px;
     padding: 0 0 0;
+}
 
+.maintext:hover {
+    text-shadow: 0 4px rgb(55,55,55);
+    font-size: 40px;
+    box-shadow: 0 4px black;
 }

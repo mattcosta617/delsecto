@@ -30,16 +30,18 @@ router.get('/new', (req, res) => {
 });
 
 
-//-------------------- Post new question to /questions page ---------
-router.post('/', (req, res) => {
-    console.log('Request Body = ', req.body)
+// //-------------------- Post new question to /questions page ---------
+// router.post('/', (req, res) => {
+//     console.log('Request Body = ', req.body)
+    
 
-    db.Question.create(req.body, (err, newQuestion) => {
-        if(err) return console.log(err);
+//     db.Question.create(req.body, (err, newQuestion) => {
+//         if(err) return console.log(err);
+//         console.log("This is where we are now");
+//             res.redirect('/questions');
+//         })
+// });
 
-            res.redirect('/questions');
-        })
-});
 
 
 
@@ -63,16 +65,21 @@ router.post('/', (req, res) => {
   
     db.Question.create(req.body, (err, newQuestion) => {
       if (err) return console.log(err);
-  
+        console.log("This is it");
       console.log(newQuestion);
-      db.Question.findById(req.body.questionsId, (err, foundQuestion) => {
-        foundQuestion.push(newQuestion);
-        foundQuestion.save((err, savedQuestions) => {
-          console.log('savedQuestions: ', savedQuestions);
-          
-          res.redirect('questions/show');
+     db.Language.find({language: newQuestion.languageId}, (err, foundLanguage) => {
+        if (err) return console.log(err);
+
+        console.log(foundLanguage);
+        console.log(foundLanguage[0].questions);
+        foundLanguage[0].questions.push(newQuestion);
+        foundLanguage[0].save((err, savedLanguage) => {
+            if(err) return console.log(err);
+            console.log(savedLanguage);
+
+            res.redirect('/questions');
         })
-      })
+     })
     });
   });
 
@@ -121,12 +128,55 @@ router.post('/', (req, res) => {
 
 router.post('/:id/solutions', function(req, res){
     db.Solution.create(req.body, (err, newSolution) => {
-        db.Question.findByIdAndUpdate(req.params, {
+        db.Question.findByIdAndUpdate(req.params.id, {
             $push: {solutions: newSolution}
         }, (err, updatedQuestion) => {
             res.redirect(`/questions/${req.params.id}`);
         })
     });
+});
+
+// --------------------- edit SOLUTION----------------
+
+router.get('/:id/solutions', (req, res) => {
+    db.Solution.findById(req.params.id, (err, editSolution) => {
+        if(err) return console.log(err);
+
+        res.render('questions/solutions', {
+            solution: editSolution
+        });
+    });
+});
+
+router.put('/:id', (req, res) => {
+    console.log('Updated Solution = ', req.body);
+
+    db.Solution.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, updatedSolution) => {
+            db.Question.findById(
+                
+            )
+            if (err) return console.log(err);
+
+            res.redirect('/questions/:id');
+        }
+    );
+});
+
+//--------------------_DELETE SOLUTION------------------
+
+router.delete('/:id', (req, res) => {
+    console.log('Deleting Solution = ', req.params.id);
+
+  db.Solution.findByIdAndDelete(req.params.id, (err, deletedSolution) => {
+      if(err) return  console.log(err);
+
+      console.log("The Deleted Solution = ", deletedSolution);
+      res.redirect('/questions/:id');
+  });
 });
 
 
