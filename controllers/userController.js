@@ -80,7 +80,6 @@ router.post('/register', (req, res) => {
         const newUser = {
           username,
           password: hash, //hash = hide password
-          questions,
         };
 
         db.User.create(newUser, (err, createdUser) => {
