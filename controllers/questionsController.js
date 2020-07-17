@@ -41,11 +41,7 @@ router.post('/', (req, res) => {
             db.User.findById(req.session.currentUser._id, (err, foundUser) => {
                 if(err) return console.log(err);
                 console.log(foundUser);
-<<<<<<< HEAD
-                foundUser.questions.push(newQuestion);
-=======
                 foundUser.questions.push(newQuestion._id);
->>>>>>> e678aa81ae4a8cdc0124254ac03558ff2d24fea8
                 foundUser.save((err, savedUser) => {
                 console.log('savedUser: ', savedUser);
 
@@ -53,11 +49,7 @@ router.post('/', (req, res) => {
             });
         });
     });
-<<<<<<< HEAD
 });
-=======
-
->>>>>>> e678aa81ae4a8cdc0124254ac03558ff2d24fea8
 
 
 
