@@ -64,4 +64,5 @@ app.use('/questions', questionCtrl);
 app.use('/users', userCtrl);
 
 
-app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));
+app.listen(process.env.PORT || 3000)
+
