@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
             db.User.findById(req.session.currentUser._id, (err, foundUser) => {
                 if(err) return console.log(err);
                 console.log(foundUser);
-                foundUser.questions.push(newQuestion);
+                foundUser.questions.push(newQuestion._id);
                 foundUser.save((err, savedUser) => {
                 console.log('savedUser: ', savedUser);
 

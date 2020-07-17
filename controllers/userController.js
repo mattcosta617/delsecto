@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
           _id: foundUser._id,
           username: foundUser.username,
           isLoggedIn: true,
-          questions: foundUser.questionsAsked
+          questions: foundUser
         }
 
         req.session.currentUser = currentUser;
@@ -55,12 +55,14 @@ router.post('/', (req, res) => {
 router.get('/show', (req, res) => {
     console.log(req.session);
 
-    db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+    db.User.findById(req.session.currentUser._id)
+    .populate("questions")
+    .exec((err, foundUser) => {
         if(err) return console.log(err);
         res.render('users/show', {
             user: foundUser,
         });
-    });
+    }); 
 });
 
 
