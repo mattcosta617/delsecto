@@ -43,7 +43,6 @@ button:active {
     padding: 20px 16px;
 }
 
-
 textarea {
     color: black;
     font-size: 20px;
@@ -361,21 +360,35 @@ input {
 
 .container {
 
-    width: 1010px;
+    width: 910px;
     margin: 0 auto;
+    float: center;
+    display: inline-block;
+    margin: 20px;
 }
 .first {
-    width: 400px;
-    height: 100px;
+    width: 250px;
+    height: auto;
     float: left;
-    background: black;
+    text-align: left;
     margin: 0 10px 0 0;
+    background: black;
+    border-radius: 5px;
+    padding: 20px
 }
 .second {
-    width: 600px;
+    width: 650px;
     float: left;
-    height: 100px;
-    background: gray;
+    height: auto;
+    text-align: left;
+    background: black;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+img {
+    width: 150px;
+    height: auto;
 }
 
 #leftAntenna {
@@ -451,8 +464,3 @@ input {
      border-top-right-radius: 60%;
      background-color: rgb(100, 100, 100);
 }
-
-
-
-
-

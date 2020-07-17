@@ -55,12 +55,14 @@ router.post('/', (req, res) => {
 router.get('/show', (req, res) => {
     console.log(req.session);
 
-    db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+    db.User.findById(req.session.currentUser._id)
+    .populate("questions")
+    .exec((err, foundUser) => {
         if(err) return console.log(err);
         res.render('users/show', {
             user: foundUser,
         });
-    });
+    }); 
 });
 
 
@@ -82,6 +84,7 @@ router.post('/register', (req, res) => {
         const newUser = {
           username,
           password: hash, //hash = hide password
+          questions,
         };
 
         db.User.create(newUser, (err, createdUser) => {
@@ -114,6 +117,6 @@ router.get('/logout', (req, res) => {
 // db.User.find((err, foundUser) => {if (err)
 //     console.log(err); console.log(foundUser); process.exit();
 // });
-console.log(session);
+// console.log(session);
 
 module.exports = router;
