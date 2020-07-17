@@ -56,9 +56,8 @@ router.get('/show', (req, res) => {
     console.log(req.session);
 
     db.User.findById(req.session.currentUser._id)
-    .populate("questions") ///just added
-    .populate("solutions")
-    .exec((err, foundUser) => {  //.exec new 
+    .populate("questions")
+    .exec((err, foundUser) => {
         if(err) return console.log(err);
         res.render('users/show', {
             user: foundUser,

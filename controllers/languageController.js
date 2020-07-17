@@ -2,61 +2,32 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-// router.get('/', (req, res) => {
-
-//     db.Questions.findById(req.body.), (err, allQuestions) => {
-//         if(err) return console.log(err);
-//         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-//             if(err) return console.log(err);
-
-//             res.render('languages/index', {
-//                 questions: allQuestions,
-//                 user: foundUser,
-//             });
-//         });
-//     });
-// });
-
 router.get('/', (req, res) => {
-
-<<<<<<< HEAD
+    db.Language.find({}, (err, allLanguages) => {
     db.Question.find({}, (err, allQuestions) => {
         if (err) return console.log(err);
-        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-            if(err) return console.log(err);
         res.render('languages/index', {
             questions: allQuestions,
             user: foundUser,
             });
-=======
-    db.Language.find({}, (err, allLanguages) => {
-        if(err) return console.log(err);
-        // db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-            if(err) return console.log(err);
-
-            res.render('languages/index', {
-                languages: allLanguages,
-                // user: foundUser,
-            })
->>>>>>> 7a3578a43c3ccddd5d876800822c4654486d27b0
         });
     });
-// });
+});
 
 
 // -----------Languages/new exists and works-------------------
 router.get('/new', (req, res) => {
     db.Language.find({}, (err, languages) => {
         if(err) return console.log(err);
-        // db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
             
             res.render('languages/new', {
-                // user: foundUser,
+                user: foundUser,
             });
         })
     });
-// });
+});
 
 
 
@@ -93,15 +64,16 @@ router.get('/:id', (req, res) => {
         .exec((err, foundLanguage) => {
         if(err) return console.log(err);
         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-            if(err) return console.log(err);     
+            if(err) return console.log(err);
+            
         
             res.render('languages/show', {
                 language: foundLanguage,
-                // user: foundUser,
+                user: foundUser,
             });
         });
     });
-// });
+});
 
     
     //-------------------- Post new language to /languages page ---------
@@ -123,17 +95,17 @@ router.get('/:id', (req, res) => {
   router.get('/:id/edit', (req, res) => {
       db.Language.findById(req.params.id, (err, editLanguage) => {
           if(err) return console.log(err);
-        //   db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+          db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
             
         
             res.render('languages/edit', {
-            //   user: foundUser,
+              user: foundUser,
               language: editLanguage
           });
         });
       });
-//   });
+  });
 
   router.put('/:id', (req, res) => {
       console.log('Updated Language = ', req.body);

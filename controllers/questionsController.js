@@ -2,26 +2,20 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-
-// db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-//     if(err) return console.log(err);
-//     user: foundUser,
-// });
-
 // -------------------Main Question page------------------
 router.get('/', (req, res) => {
 
     db.Question.find({}, (err, allQuestions) => {
         if (err) return console.log(err);
-        // db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
         res.render('questions/index', {
             questions: allQuestions,
-            // user: foundUser,
+            user: foundUser,
             });
         });
     });
-// });
+});
 
 
 // -----------Questions/new exists and works-------------------
@@ -46,18 +40,15 @@ router.post('/', (req, res) => {
         if(err) return console.log(err);
             // db.User.findById(req.session.currentUser._id, (err, foundUser) => {
                 if(err) return console.log(err);
-                 console.log(foundUser);
-                 foundUser.questions.push(newQuestion);
-                 foundUser.save((err, savedUser) => {
-                 console.log('savedUser: ', savedUser);
+                console.log(foundUser);
+                foundUser.questions.push(newQuestion._id);
+                foundUser.save((err, savedUser) => {
+                console.log('savedUser: ', savedUser);
 
                 res.redirect('/questions');
             });
         });
     });
-
-
-
 
 // -------------QUESTION BY ID PAGE---------------------
 router.get('/:id', (req, res) => {

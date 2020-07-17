@@ -379,15 +379,11 @@ input {
 .second {
     width: 650px;
     float: left;
-<<<<<<< HEAD
     height: auto;
     text-align: left;
     background: black;
     border-radius: 5px;
     padding: 20px;
-=======
-    height: 100px;
->>>>>>> 7a3578a43c3ccddd5d876800822c4654486d27b0
 }
 
 img {
