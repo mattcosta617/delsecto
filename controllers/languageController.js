@@ -2,17 +2,31 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
+// router.get('/', (req, res) => {
+
+//     db.Questions.findById(req.body.), (err, allQuestions) => {
+//         if(err) return console.log(err);
+//         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+//             if(err) return console.log(err);
+
+//             res.render('languages/index', {
+//                 questions: allQuestions,
+//                 user: foundUser,
+//             });
+//         });
+//     });
+// });
+
 router.get('/', (req, res) => {
 
-    db.Language.find({}, (err, allLanguages) => {
-        if(err) return console.log(err);
+    db.Question.find({}, (err, allQuestions) => {
+        if (err) return console.log(err);
         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
-
-            res.render('languages/index', {
-                languages: allLanguages,
-                user: foundUser,
-            })
+        res.render('languages/index', {
+            questions: allQuestions,
+            user: foundUser,
+            });
         });
     });
 });
@@ -65,9 +79,6 @@ router.get('/:id', (req, res) => {
     db.Language.findById(req.params.id) 
         .populate({path: "questions"})
         .exec((err, foundLanguage) => {
-        if(err) return console.log(err);
-        console.log(foundLanguage);
-
         if(err) return console.log(err);
         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
