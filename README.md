@@ -4,7 +4,7 @@
 <h2>Walk Through</h2>
 
   <p>  
-Delsecto is an website that allows Users to debug and help others debug. It is built for General Assembly 
+Delsecto is a website that allows Users to debug and help others debug. It is built for General Assembly 
 students to help with learning as a community. To start on the site you'll be brought to the home page where a User can see all the options of choosing a language, a question, asking a question, or signing up and logging in. First things first, the user should log in. After login, all questions and solutions the user posts will be stored in their personal profile.
 
 The User may ask a question which will then be posted on to the questions page and will allow users the ability to help them seek and answer. In turn, they may also post answers to other students questions and help ease other students with their learning curves. Each question posted comes with a language Id which will also allow you to look up questions by language on the language page. 
