@@ -2,34 +2,22 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 
-// router.get('/', (req, res) => {
 
-//     db.Questions.findById(req.body.), (err, allQuestions) => {
-//         if(err) return console.log(err);
-//         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-//             if(err) return console.log(err);
 
-//             res.render('languages/index', {
-//                 questions: allQuestions,
-//                 user: foundUser,
-//             });
-//         });
-//     });
-// });
 
 router.get('/', (req, res) => {
-
     db.Question.find({}, (err, allQuestions) => {
         if (err) return console.log(err);
         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
-        res.render('languages/index', {
+        res.render('questions/index', {
             questions: allQuestions,
             user: foundUser,
             });
         });
     });
 });
+
 
 
 // -----------Languages/new exists and works-------------------

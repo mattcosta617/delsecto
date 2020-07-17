@@ -9,117 +9,115 @@
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
-    <main class="pagetext">
+    <main>
         <div class="questionsTop">
             <h1 id="questionIntro">Questions</h1>
             <h4 id="howMany">Total questions asked: <%= questions.length %></h4>
         </div>
         
-
+                <!----------------------- HTML---------------------- -->
         <h1 class="langName"><a href="languages/5f0f99029ef3333938e0b81a"> HTML </a></h1>
        
             
             <% for(let i = 0; i < questions.length; i++) { %>
             
                 <% if(questions[i].languageId === "HTML") { %>
-            <div class="questSpace">
+
                 <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                  <%= questions[i].question; %> 
+                 <h3 class="questSpace"> <%= questions[i].question; %> </h3>
                 </a> 
             
                 <% }else{  %>
                       
                   <% }}; %>
-                <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
-            </div>
+               <!----------------------- CSS ---------------------- -->
+
       
-        <h1 class="langName"><a href="languages/5f0fb94ef114c33c4f02e958"> CSS </a></h1>
+        <h1 class="langName"><a href="languages/5f11b10f97bd410c0aadb2a3"> CSS </a></h1>
       
         <% for(let i = 0; i < questions.length; i++) { %>
-            
+        
                 <% if(questions[i].languageId === "CSS") { %>
-        <div class="questSpace">
+        
                 <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                   <%= questions[i].question; %> 
+                    <h3 class="questSpace"> <%= questions[i].question; %> </h3><br>
                 </a> 
                 <% }else{  %>
                       
                   <% }}; %>
-                <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
-         </div>
+               <!----------------------- Javascript ---------------------- -->
+    
             <h1 class="langName"> <a href="languages/5f0fb96465954d3cc6ae0a36"> Javascript </a></h1>
   
             <% for(let i = 0; i < questions.length; i++) { %>
                 
                     <% if(questions[i].languageId === "Javascript") { %>
-         <div class="questSpace">               
+
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                        <%= questions[i].question; %> 
+                         <h3 class="questSpace"> <%= questions[i].question; %> </h3>
                     </a> 
                     <% }else {  %>
                           
                       <% }}; %>
-                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
-         </div>
+                    <!----------------------- MONGODB---------------------- -->
+
 
             <h1 class="langName"><a href="languages/5f0fb96dc485ba3cdafbf18a"> MongoDB </a></h1>
          
             <% for(let i = 0; i < questions.length; i++) { %>
                 
                     <% if(questions[i].languageId === "MongoDB") { %>
-        <div class="questSpace">                
+
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <%= questions[i].question; %> 
+                        <h3 class="questSpace"> <%= questions[i].question; %> </h3>
                     </a> 
                     <% }else{  %>
                           
                       <% }}; %>
-                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
-        </div>
+                    <!----------------------- Python---------------------- -->
+ 
 
             <h1 class="langName"> <a href="languages/5f0fba2420662b3cfdbf7eab"> Python </a></h1>
         
             <% for(let i = 0; i < questions.length; i++) { %>
                
                     <% if(questions[i].languageId === "Python") { %>
-         <div class="questSpace">                
+    
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                        <%= questions[i].question; %> 
+                        <h3 class="questSpace"> <%= questions[i].question; %></h3> 
                     </a> 
                     <% }else{  %>
                        
                       <% }}; %>
-                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
-        </div>
+                    <!----------------------- Express ---------------------- -->
+       
 
             <h1 class="langName"><a href="languages/5f0fba398e350a3d2177d8ed"> Express </a></h1>
         
             <% for(let i = 0; i < questions.length; i++) { %>
                 
                     <% if(questions[i].languageId === "Express") { %>
-        <div class="questSpace">               
+    
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <%= questions[i].question; %> 
+                        <h3 class="questSpace"> <%= questions[i].question; %></h3> 
                     </a> 
                     <% }else{  %>
                          
                       <% }}; %>
-        </div>
-
+        
+                    <!----------------------- Git ---------------------- -->
                 <h1 class="langName"><a href="languages/5f0fd92b3366c0441a306cd3"> GIT </a></h1>
       
             <% for(let i = 0; i < questions.length; i++) { %>
                
                     <% if(questions[i].languageId === "Git") { %>
-         <div class="questSpace">                
+  
                     <a href="/questions/<%=`${questions[i]._id}`%>"> 
-                       <%= questions[i].question; %> 
+                        <h3 class="questSpace"> <%= questions[i].question; %> </h3>
                     </a> 
                     <% }else{  %>
                         
                       <% }}; %>
-                    <!-- COULD MAKE IT SO LANGUAGES ARE PART OF THE QUESTION MODEL -->
-        </div>
                 <br>
                 <br>
                 <br>
@@ -137,10 +135,9 @@
                     <div id="bugRightLeg"></div>
                     <div id="leftWing"></div>
                     <div id="rightWing"></div>
-                    </div>
+                </div>
                 <br>
-                <br>
-                <br>
+               
     </main>
 </body>
 </html>
