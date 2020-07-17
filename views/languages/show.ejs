@@ -4,21 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/style.css" />
-    <title>Document</title>
+    <title>Language Show</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
+    <div>
+      
+        <h1 class="questionsTop" id="profileIntro">Welcome, <%= user.username %></h1>
+        <div class="container">
+            <div class="first">
+                <h2><%= user.username %></h2>
+                <img src="https://i.pinimg.com/originals/cd/a8/ff/cda8ff1bcb7f335719b146d61f6f494a.png">
+                <p>City, State</p>
+                <p>github.com/mygithupsite</p>
+            </div>
+            <div class="second">        
+                <h2>Questions Asked</h2>
+                <% user.questions.forEach((pizza) => { %> 
+                    <h3> <%= pizza.question %> </h3>
+                <% }) %> 
 
-   <h1> <%= language.language %> </h1>
-
-   <% language.questions.forEach((question) => { %>
-       <h3> <%= question.question %>  </h3>
-  <% }) %>
+                <h2>Solutions Given</h2>
+                <p>Coming with Beta Version.</p>
+                <p>Want to see Beta quicker? Invest in DELSECTO now!</p>
+                <% user.solutions.forEach((pizza) => { %> 
+                    <h3> <%= pizza.solution %> </h3>
+                <% }) %> 
+            </div>
+        </div>
+    </div>
 
 
 
    <button class="button"><a href="/languages/<%=`${language._id}`%>/edit">Edit</a></button>
 
    
+   <div id="bug">
+    <div id="leftAntenna"></div>
+    <div id="rightAntenna"></div>
+    <div id="bugHead"></div>
+    <div id="bugBody"></div>
+    <div id="bugLeftArm"></div>
+    <div id="bugRightArm"></div>
+    <div id="bugMiddleLeft"></div>
+    <div id="bugMiddleRight"></div>
+    <div id="bugLeftLeg"></div>
+    <div id="bugRightLeg"></div>
+    <div id="leftWing"></div>
+    <div id="rightWing"></div>
+    </div>
+
 </body>
 </html>
