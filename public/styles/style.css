@@ -360,7 +360,7 @@ input {
 
     width: 910px;
     margin: 0 auto;
-    float: center;
+    /* float: center; */
     display: inline-block;
     margin: 20px;
 }

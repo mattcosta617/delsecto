@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const connectionString = 'mongodb://localhost:27017/delsecto';
 
+
+
+
 mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -17,3 +20,6 @@ module.exports = {
   Question: require('./Question'),
   User: require('./User'),
 };
+
+
+mongoose.connect( process.env.MONGODB_URI || "YOUR CURRENT LOCALHOST DB CONNECTION STRING HERE" );
