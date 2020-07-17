@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-const session = require('express-session');
+
 
 router.get('/', (req, res) => {
+
     db.Question.find({}, (err, allQuestions) => {
         if (err) return console.log(err);
         db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
-        res.render('questions/index', {
+        res.render('languages/index', {
             questions: allQuestions,
             user: foundUser,
             });
         });
     });
 });
-
 
 
 // -----------Languages/new exists and works-------------------
