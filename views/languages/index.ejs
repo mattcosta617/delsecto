@@ -12,14 +12,10 @@
         <div  class="questionsTop" >
             <h1 id="langLabel">Languages</h1>
         </div>
-       
-    <% languages.forEach(language => { %>
-        <h2 class="langName">
-          <a href="/languages/<%= language._id %>">
-            <%= language.language %>
-          </a>
-        </h2>
-      <% }) %>
+
+      <% questions.languageId.forEach((pizza) => { %> 
+          <h3> <%= pizza.languageId %> </h3>
+      <% }) %> 
     
     </main>
 </body>
