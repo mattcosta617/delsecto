@@ -22,5 +22,5 @@ Further down the line we would like Users to be able to comment on each question
 <h2>Highlights to creating this website</h2>
 
 <p>
-A few highlights from creating this website were having the questions post to the proper language. 
+A few highlights from creating this website were having the questions post to the proper language. The grabbing cursor was also very prideful moment
 </p>

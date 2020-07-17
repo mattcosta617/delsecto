@@ -13,32 +13,59 @@
         <h1 class="questionsTop" id="questShow"><%= question.languageId %> Question</h1>
 
         <a href="/questions/<%=`${question._id}`%>"> 
-           <h2 style="text-decoration: none"> <%= question.question; %> </h2>
+           <h2 id="soloQuest"> <%= question.question; %> </h2>
             
-        </a><br>
-        <button><a href="/questions/<%=`${question._id}`%>/edit">Edit</a></button>
+        </a>
+        <button id="edit"><a href="/questions/<%=`${question._id}`%>/edit">Edit</a></button>
+        <br>
 <div>
-    <label for="solution">Think you know the answer?</label>
+    <label for="solution" class="label">Think you know <br> the answer?</label>
     <form action="/questions/<%=question._id%>/solutions" method="POST">
     <textarea id="body" name="solution" placeholder="Enter Answer"></textarea>
-        <button type="submit">Submit</button>
+        <button class ="button" type="submit">Submit</button>
     </form>
 </div>
     <br>
     <br>
     <br>
+    <div id="bug">
+        <div id="leftAntenna"></div>
+        <div id="rightAntenna"></div>
+        <div id="bugHead"></div>
+        <div id="bugBody"></div>
+        <div id="bugLeftArm"></div>
+        <div id="bugRightArm"></div>
+        <div id="bugMiddleLeft"></div>
+        <div id="bugMiddleRight"></div>
+        <div id="bugLeftLeg"></div>
+        <div id="bugRightLeg"></div>
+        <div id="leftWing"></div>
+        <div id="rightWing"></div>
+        </div>
     <br>
     <br>
     <br>
     <!-- <h4 value="savedSolutions">Saved Solutions</h4> -->
-    
+    <div class="solved">
     <%= question.solution %>
     <% question.solutions.forEach((solution) => { %>
         <a href="/questions/<%=solution._id%>/solutions">
           <h4><%= solution.solution %></h4>
         </a>
       <% }); %>
-  
+    </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
     
     
     
