@@ -6,16 +6,16 @@ router.get('/', (req, res) => {
 
     db.Language.find({}, (err, allLanguages) => {
         if(err) return console.log(err);
-        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+        // db.User.findById(req.session.currentUser._id, (err, foundUser) => {
             if(err) return console.log(err);
 
             res.render('languages/index', {
                 languages: allLanguages,
-                user: foundUser,
+                // user: foundUser,
             })
         });
     });
-});
+// });
 
 
 // -----------Languages/new exists and works-------------------
