@@ -10,16 +10,26 @@
     <%- include ('../partials/header.ejs'); -%>
     <div>
       
-        <h1 class="questionsTop" id="profileIntro">Welcome, <%= user.username %>.</h1>
+        <h1 class="questionsTop" id="profileIntro">Welcome, <%= user.username %></h1>
         <div class="container">
             <div class="first">
                 <h2><%= user.username %></h2>
+                <img src="https://i.pinimg.com/originals/cd/a8/ff/cda8ff1bcb7f335719b146d61f6f494a.png">
+                <p>City, State</p>
+                <p>github.com/mygithupsite</p>
             </div>
             <div class="second">        
                 <h2>Questions Asked</h2>
-                <p> <%= user.questionsAsked %></p>
+                <% user.questions.forEach((pizza) => { %> 
+                    <h3> <%= pizza.question %> </h3>
+                <% }) %> 
+
+                <h2>Solutions Given</h2>
+                <p>Coming with Beta Version.</p>
+                <p>Want to see Beta quicker? Invest in DELSECTO now!</p>
             </div>
         </div>
     </div>
+    
 </body>
 </html>

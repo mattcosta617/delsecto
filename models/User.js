@@ -16,12 +16,9 @@ const UserSchema = new mongoose.Schema({
         minlength: 4
     }, questions: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Question'
-      }], solutions: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Solution"
-}]
-}, {timestamp: true});
+        ref: "Question",
+    }],
+}, {timestamps: true});
 
 UserSchema.plugin(passportLocalMongoose);
 
