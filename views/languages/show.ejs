@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles/style.css" />
-    <title>Document</title>
+    <title>Language Show</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
@@ -12,7 +12,9 @@
    <h1> <%= language.language %> </h1>
 
    <% language.questions.forEach((question) => { %>
-       <h3> <%= question.question %>  </h3>
+     <a href="/questions/<%=question._id%>">
+      <h3> <%= question.question %></h3>
+      </a>
   <% }) %>
 
 
@@ -20,5 +22,20 @@
    <button class="button"><a href="/languages/<%=`${language._id}`%>/edit">Edit</a></button>
 
    
+   <div id="bug">
+    <div id="leftAntenna"></div>
+    <div id="rightAntenna"></div>
+    <div id="bugHead"></div>
+    <div id="bugBody"></div>
+    <div id="bugLeftArm"></div>
+    <div id="bugRightArm"></div>
+    <div id="bugMiddleLeft"></div>
+    <div id="bugMiddleRight"></div>
+    <div id="bugLeftLeg"></div>
+    <div id="bugRightLeg"></div>
+    <div id="leftWing"></div>
+    <div id="rightWing"></div>
+    </div>
+
 </body>
 </html>

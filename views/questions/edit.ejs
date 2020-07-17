@@ -23,10 +23,26 @@
       <label for="question">Question</label>
       <textarea id="body" name="question"><%= question.question %></textarea>
     </div>
-    <button type="submit">Update Question</button>
+    <button type="submit" class="button">Update Question</button>
     
   </form>
-  <%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
+    <%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
 </main>
+
+
+<div id="bug">
+    <div id="leftAntenna"></div>
+    <div id="rightAntenna"></div>
+    <div id="bugHead"></div>
+    <div id="bugBody"></div>
+    <div id="bugLeftArm"></div>
+    <div id="bugRightArm"></div>
+    <div id="bugMiddleLeft"></div>
+    <div id="bugMiddleRight"></div>
+    <div id="bugLeftLeg"></div>
+    <div id="bugRightLeg"></div>
+    <div id="leftWing"></div>
+    <div id="rightWing"></div>
+    </div>
 </body>
 </html>
