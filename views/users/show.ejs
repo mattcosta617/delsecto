@@ -10,7 +10,7 @@
     <%- include ('../partials/header.ejs'); -%>
     <div>
       
-        <h1 class="questionsTop" id="profileIntro">Welcome, <%= user.username %>.</h1>
+        <h1 class="questionsTop" id="profileIntro">Welcome, <%= user.username %></h1>
         <div class="container">
             <div class="first">
                 <h2><%= user.username %></h2>
@@ -25,8 +25,10 @@
                 <% }) %> 
 
                 <h2>Solutions Given</h2>
+                <p>Coming with Beta Version.</p>
+                <p>Want to see Beta quicker? Invest in DELSECTO now!</p>
                 <% user.solutions.forEach((pizza) => { %> 
-                    <h3> <%= pizza.solutions %> </h3>
+                    <h3> <%= pizza.solution %> </h3>
                 <% }) %> 
             </div>
         </div>

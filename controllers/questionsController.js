@@ -83,22 +83,22 @@ router.post('/', (req, res) => {
     db.Question.create(req.body, (err, newQuestion) => {
       if (err) return console.log(err);
         console.log("This is it");
-      console.log(newQuestion);
-     db.Language.find({language: newQuestion.languageId}, (err, foundLanguage) => {
-        if (err) return console.log(err);
+        console.log(newQuestion);
+        db.Language.find({language: newQuestion.languageId}, (err, foundLanguage) => {
+            if (err) return console.log(err);
 
-        console.log(foundLanguage);
-        console.log(foundLanguage[0].questions);
-        foundLanguage[0].questions.push(newQuestion);
-        foundLanguage[0].save((err, savedLanguage) => {
-            if(err) return console.log(err);
-            console.log(savedLanguage);
+                console.log(foundLanguage);
+                console.log(foundLanguage[0].questions);
+                foundLanguage[0].questions.push(newQuestion);
+                foundLanguage[0].save((err, savedLanguage) => {
+                 if(err) return console.log(err);
 
-            res.redirect('/questions');
+                    console.log(savedLanguage);
+                    res.redirect('/questions');
+            })
         })
-     })
     });
-  });
+});
 
   // --------------------- edit----------------
 
@@ -157,6 +157,47 @@ router.post('/:id/solutions', function(req, res){
         })
     });
 });
+
+// router.post('/:id/solutions', (req, res) => {
+//     console.log('Request Body = ', req.body)
+//     db.Solution.create(req.body, (err, newSolution) => {
+//         if(err) return console.log(err);
+//         db.Question.findByIdAndUpdate(req.params.id, (err, foundQuestion) => {
+
+//             if(err) return console.log(err);
+//             db.User.findByIdAndUpdate(req.session.newSolution, (err, foundUser) => {
+//                 $push: {solutions: newSolution}
+//                 if(err) return console.log(err);
+//                 foundQuestion.solution.push(newSolution);
+//                 foundUser.solutions.push(newSolution);
+//                 foundUser.save((err, savedUser) => {
+//                 console.log('savedUser: ', savedUser);
+
+//                 res.redirect(`/questions/${req.params.id}`);
+//                 })
+//             })
+//         });
+//     });
+// });
+
+router.post('/', (req, res) => {
+    console.log('Request Body = ', req.body)
+    
+    db.Question.create(req.body, (err, newQuestion) => {
+        if(err) return console.log(err);
+            db.User.findById(req.session.currentUser._id, (err, foundUser) => {
+                if(err) return console.log(err);
+                console.log(foundUser);
+                foundUser.questions.push(newQuestion);
+                foundUser.save((err, savedUser) => {
+                console.log('savedUser: ', savedUser);
+
+                res.redirect('/questions');
+            });
+        });
+    });
+});
+
 
 // --------------------- edit SOLUTION----------------
 
