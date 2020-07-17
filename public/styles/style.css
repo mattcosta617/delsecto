@@ -343,6 +343,23 @@ input {
     clear: both;
 }
 
+#solutionSubmit {
+    margin: 5px;
+    position: relative;
+    top: 20px;
+    right: 170px;
+
+}
+
+#body1 {
+    position: relative;
+    left: 70px;
+    width: 300px;
+    height: 100px;
+    color: black;
+    border-radius: 5px;
+    margin: 10px 10px 20px 10px;;
+}
 
 
 .maintext {
