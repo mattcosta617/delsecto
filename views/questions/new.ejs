@@ -11,19 +11,17 @@
     <div class="questionsTop">
         <h1>Ask A Question!</h1>
     </div>
-    <form action="/questions" method="POST">
-               
+    <form class="pagetext" action="/questions" method="POST">
         
-        
-        
-        <div id="askAlign">  
+    <div id="askAlign">  
            
-            <label for="ask" class="label">Question</label></br>
-            <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
+          <label for="ask" class="label">Question</label></br>
+          <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
+          <textarea type="text" id="question" name="question"></textarea>
         </div>
         <button class="button" type="submit">Submit</button>
     
-    </form>
+      </form></br>
 
       <div id="bug">
         <div id="leftAntenna"></div>

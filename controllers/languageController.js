@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
-
-
-
+const session = require('express-session');
 
 router.get('/', (req, res) => {
     db.Question.find({}, (err, allQuestions) => {

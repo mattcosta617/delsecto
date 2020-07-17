@@ -16,10 +16,6 @@ router.get('/register', (req, res) => {
   res.render('users/register');
 });
 
-
-
-
-
 router.post('/', (req, res) => {
   db.User.findOne({username: req.body.username}, (err, foundUser) => {
     if (err) return console.log(err);
