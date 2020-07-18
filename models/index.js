@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connectionString = 'mongodb://localhost:27017/delsecto';
+const connectionString = process.env.MONGODB_URI || 'mongodb://localhost:27017/delsecto';
 
 
 
@@ -22,4 +22,4 @@ module.exports = {
 };
 
 
-mongoose.connect( process.env.MONGODB_URI || "YOUR CURRENT LOCALHOST DB CONNECTION STRING HERE" );
+// mongoose.connect( process.env.MONGODB_URI || "YOUR CURRENT LOCALHOST DB CONNECTION STRING HERE" );
