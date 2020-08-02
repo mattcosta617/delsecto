@@ -12,14 +12,15 @@ const PORT = process.env.PORT || 4000;
 // --------------------------CALL CONTROLLERS-------------------------
 const languageCtrl = require('./controllers/languageController');
 const questionCtrl = require('./controllers/questionsController');
-// const solutionsCtrl = require('./controllers/solutionsController');
 const userCtrl = require('./controllers/userController');
 const passport = require('passport');
 
 // -------------------------VIEW ENGINE--------------------------------
+
 app.set('view engine', 'ejs');
 
 //---------------------------MIDDLEWARE--------------------------------
+
 app.use(express.static(`${__dirname}/public`));
 
 app.use(methodOverride('_method'));
@@ -59,4 +60,4 @@ app.use('/questions', questionCtrl);
 app.use('/users', userCtrl);
 
 
-app.listen(process.env.PORT || 3000)
+app.listen(process.env.PORT || 4000)
