@@ -17,11 +17,9 @@ const userCtrl = require('./controllers/userController');
 const passport = require('passport');
 
 // -------------------------VIEW ENGINE--------------------------------
-
 app.set('view engine', 'ejs');
 
 //---------------------------MIDDLEWARE--------------------------------
-
 app.use(express.static(`${__dirname}/public`));
 
 app.use(methodOverride('_method'));
@@ -31,11 +29,6 @@ app.use(express.urlencoded({extended: false}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 4ca22e4750f1580a063fc5ebea00af00c61f5c14
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url} ${new Date().toLocaleTimeString()}`);
     next();
@@ -55,7 +48,6 @@ app.use(session({
 }));
 
 // ----------------------------ROUTES---------------------------------------
-
 app.get('/', (req, res) => {
     res.render('home');
 });
@@ -64,10 +56,7 @@ app.use('/languages', languageCtrl);
 
 app.use('/questions', questionCtrl);
 
-// app.use('/solutions', solutionsCtrl);
-
 app.use('/users', userCtrl);
 
 
 app.listen(process.env.PORT || 3000)
-// app.listen(PORT, () => console.log(`The Server is running on port ${PORT}`));

@@ -95,38 +95,36 @@ router.post('/', (req, res) => {
     });
 });
 
-  // --------------------- edit----------------
-
-  router.get('/:id/edit', (req, res) => {
-      db.Question.findById(req.params.id, (err, editQuestion) => {
+// --------------------- edit----------------
+router.get('/:id/edit', (req, res) => {
+    db.Question.findById(req.params.id, (err, editQuestion) => {
+        if(err) return console.log(err);
+        db.User.findById(req.session.currentUser._id, (err, foundUser) => {
           if(err) return console.log(err);
-
-          db.User.findById(req.session.currentUser._id, (err, foundUser) => {
-            if(err) return console.log(err);
-    
-            res.render('questions/edit', {
-              question: editQuestion,
-              user: foundUser,
-          });
+  
+          res.render('questions/edit', {
+            question: editQuestion,
+            user: foundUser,
         });
       });
-  });
+    });
+});
   
 
-  router.put('/:id', (req, res) => {
-      console.log('Updated Question = ', req.body);
+router.put('/:id', (req, res) => {
+    console.log('Updated Question = ', req.body);
 
-      db.Question.findByIdAndUpdate(
-          req.params.id,
-          req.body,
-          {new: true},
-          (err, updatedQuestion) => {
-              if (err) return console.log(err);
+     db.Question.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new: true},
+        (err, updatedQuestion) => {
+            if (err) return console.log(err);
 
-              res.redirect('/questions');
-          }
-      );
-  });
+             res.redirect('/questions');
+        }
+    );
+});
 
   //-----------------------DELETE-------------------------
 

@@ -104,14 +104,4 @@ router.get('/logout', (req, res) => {
   });
 });
 
-//Check Users That Have Been Created
-// db.User.find((err, foundUser) => {if (err)
-//     console.log(err); console.log(foundUser); process.exit();
-// });
-
-// db.User.find((err, foundUser) => {if (err)
-//     console.log(err); console.log(foundUser); process.exit();
-// });
-// console.log(session);
-
 module.exports = router;
