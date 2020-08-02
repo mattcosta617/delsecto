@@ -3,101 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <title>Document</title>
-=======
-    <!-- <link rel="stylesheet" href="../../public/styles/main.css"> -->
-    <!-- <script src="../../public/js/app.js"></script> -->
+    <link rel="stylesheet" type="text/css" href="/styles/style.css"/>
     <title>Questions Index</title>
->>>>>>> 4f82601d2ed34590e20eb499c6a716fd0a13462e
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
     <main>
-        <h1>Questions!</h1>
-        <h4>Total questions asked: <%= questions.length %></h4>
+        <div class="questionsTop">
+            <h1 id="questionIntro">Questions</h1>
+            <h4 id="howMany">Total questions asked: <%= questions.length %></h4>
+        </div>
         
-      
-        <h1> HTML</h1>
-      
-        <%  questions.forEach(question => { %>
-            <div>
-                
-                  <% if(question.languageId === "HTML") { %>
-                <a href="/questions/<%=`${question._id}`%>"> 
-                    <%= question.question; %>
-                    
-                   
-                    
+                <!----------------------- HTML---------------------- -->
+        <h1 class="langName"><a href="languages/5f0f99029ef3333938e0b81a"> HTML </a></h1>
+       
+            
+            <% for(let i = 0; i < questions.length; i++) { %>
+            
+                <% if(questions[i].languageId === "HTML") { %>
+
+                <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                 <h3 class="questSpace"> <%= questions[i].question; %> </h3>
                 </a> 
-                <% } else if(question.languageId === "HTML" && questions.length > 5) {  %>
-                      <a href="questions/html">View more</a> 
-                  <% }}); %>
-                
-            </div>
-      
-        <h1>CSS</h1>
-      
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "CSS") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
+            
+                <% }else{  %>
+                      
+                  <% }}; %>
+               <!----------------------- CSS ---------------------- -->
 
-            <h1>Javascript</h1>
       
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "Javascript") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
-
-            <h1>MongoDB</h1>
+        <h1 class="langName"><a href="languages/5f11b10f97bd410c0aadb2a3"> CSS </a></h1>
       
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "MongoDB") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
-
-            <h1>Python</h1>
-      
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "Python") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
-
-            <h1>Express</h1>
-      
-              <%  questions.forEach(question => { %>
-            <div>
-                  <% if(question.languageId === "Express") { %>
-                <a href="/questions/<%=`${question.id}`%>">
-                    <%= question.question %>
-                </a>
-                <% } %>
-             <%  }); %>
-            </div>
+        <% for(let i = 0; i < questions.length; i++) { %>
+        
+                <% if(questions[i].languageId === "CSS") { %>
+        
+                <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                    <h3 class="questSpace"> <%= questions[i].question; %> </h3><br>
+                </a> 
+                <% }else{  %>
+                      
+                  <% }}; %>
+               <!----------------------- Javascript ---------------------- -->
     
+            <h1 class="langName"> <a href="languages/5f0fb96465954d3cc6ae0a36"> Javascript </a></h1>
+  
+            <% for(let i = 0; i < questions.length; i++) { %>
+                
+                    <% if(questions[i].languageId === "Javascript") { %>
+
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                         <h3 class="questSpace"> <%= questions[i].question; %> </h3>
+                    </a> 
+                    <% }else {  %>
+                          
+                      <% }}; %>
+                    <!----------------------- MONGODB---------------------- -->
+
+
+            <h1 class="langName"><a href="languages/5f0fb96dc485ba3cdafbf18a"> MongoDB </a></h1>
+         
+            <% for(let i = 0; i < questions.length; i++) { %>
+                
+                    <% if(questions[i].languageId === "MongoDB") { %>
+
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                        <h3 class="questSpace"> <%= questions[i].question; %> </h3>
+                    </a> 
+                    <% }else{  %>
+                          
+                      <% }}; %>
+                    <!----------------------- Python---------------------- -->
+ 
+
+            <h1 class="langName"> <a href="languages/5f0fba2420662b3cfdbf7eab"> Python </a></h1>
+        
+            <% for(let i = 0; i < questions.length; i++) { %>
+               
+                    <% if(questions[i].languageId === "Python") { %>
+    
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                        <h3 class="questSpace"> <%= questions[i].question; %></h3> 
+                    </a> 
+                    <% }else{  %>
+                       
+                      <% }}; %>
+                    <!----------------------- Express ---------------------- -->
+       
+
+            <h1 class="langName"><a href="languages/5f0fba398e350a3d2177d8ed"> Express </a></h1>
+        
+            <% for(let i = 0; i < questions.length; i++) { %>
+                
+                    <% if(questions[i].languageId === "Express") { %>
+    
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                        <h3 class="questSpace"> <%= questions[i].question; %></h3> 
+                    </a> 
+                    <% }else{  %>
+                         
+                      <% }}; %>
+        
+                    <!----------------------- Git ---------------------- -->
+                <h1 class="langName"><a href="languages/5f0fd92b3366c0441a306cd3"> GIT </a></h1>
+      
+            <% for(let i = 0; i < questions.length; i++) { %>
+               
+                    <% if(questions[i].languageId === "Git") { %>
+  
+                    <a href="/questions/<%=`${questions[i]._id}`%>"> 
+                        <h3 class="questSpace"> <%= questions[i].question; %> </h3>
+                    </a> 
+                    <% }else{  %>
+                        
+                      <% }}; %>
+                <br>
+                <br>
+                <br>
+
+                <div id="bug">
+                    <div id="leftAntenna"></div>
+                    <div id="rightAntenna"></div>
+                    <div id="bugHead"></div>
+                    <div id="bugBody"></div>
+                    <div id="bugLeftArm"></div>
+                    <div id="bugRightArm"></div>
+                    <div id="bugMiddleLeft"></div>
+                    <div id="bugMiddleRight"></div>
+                    <div id="bugLeftLeg"></div>
+                    <div id="bugRightLeg"></div>
+                    <div id="leftWing"></div>
+                    <div id="rightWing"></div>
+                </div>
+                <br>
+               
     </main>
 </body>
 </html>

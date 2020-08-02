@@ -8,6 +8,12 @@
     <a class="link" href="/questions/new">Ask A Question</a>
   </div>
   <div class="topnav-right">
-    <a class="login" href="/users">Login/Signup</a>
+    <% if (typeof user !== 'undefined') { %> 
+      <a class="login" href="/users/show"> <%= user.username %> </a>
+      <a class="login" href="/users/logout">Logout</a>
+    <% } else { %> 
+      <a class="login" href="/users">Login/Signup</a>
+    <% } %> 
+    
   </div>
 </header>

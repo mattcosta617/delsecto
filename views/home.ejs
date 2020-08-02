@@ -3,47 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>DELSECTO</title>
 </head>
 <body>
     <%- include ('partials/header.ejs'); -%>
     <main>
-        <p class="welcome">Delsecto Is A Community For Debugging</p>
-        <table >
-            <tr>
-                <th>Choose A Language</th>
-                <th>Choose A Question</th>
-                <th>Ask A Question</th>
-            </tr>
-            <tr>
-                <th><a href="">HTML</a></th>
-                <th><a href="">How do I setup my HTML?</a></th>
-                <th class="language"> <%- include ('partials/languageList.ejs'); -%> </th>
-            </tr>    
-            <tr>
-                <th><a href="">CSS</a></th>
-                <th><a href="">How do I link my HTML and CSS?</a></th>
-                <th>
-                    <label for="ask">Question:</label>
-                    <input type="text" id="ask" name="ask" />
-                    <button type="submit">Submit</button>
-                </th>
-            </tr>
-            <tr>
-                <th><a href="">Javascript</a></th>
-                <th><a href="">What are the different loop functions in Javascript?</a></th>
-            </tr>
-            <tr>
-                <th><a href="">MongoDB</a></th>
-                <th><a href="">How do I run a timer on Javascript?</a></th>
-            </tr>
-            <tr>
-                <th><a href="">Python</a></th>
-                <th><a href="">What is Python?</a></th>
-            </tr>
-            
-        </table>
+        <h1 class="questionsTop" id="welcome">Delsecto Is A Community For Debugging</h1>
+            <div class="row">
+                <div class="column" id="langName">
+                  <h2>Choose a Language</h2>
+                  <a class="maintext" href="languages/5f0fd92b3366c0441a306cd3">Git</a></br>
+                  <a class="maintext" href="languages/5f11b10f97bd410c0aadb2a3">CSS</a></br>
+                  <a class="maintext" href="languages/5f0fb96465954d3cc6ae0a36">Javascript</a></br>
+                  <a class="maintext" href="languages/5f0f99029ef3333938e0b81a">HTML</a></br>
+                  <a class="maintext" href="languages/5f0fb96dc485ba3cdafbf18a">MongoDB</a></br>
+                  <a class="maintext" href="languages/5f0fba2420662b3cfdbf7eab">Python</a></br>
+                  <a class="maintext" href="languages/5f0fba398e350a3d2177d8ed">Express</a></br>
+                </div>
+                <div class="column">
+                  <h2>Choose a Question</h2>
+                  <a class="maintext" href="questions/5f10bcd4e2faf06bcbf99e16">How do I setup my HTML?</a></br>
+                  <a class="maintext" href="questions/5f10bcf3e2faf06bcbf99e17">How do I link my HTML and CSS?</a></br>
+                  <a class="maintext" href="questions/5f10bd14e2faf06bcbf99e18">What are the different loop functions in Javascript?</a></br>
+                  <a class="maintext" href="questions/5f10bd27e2faf06bcbf99e1a">How do I run a timer on Javascript?</a></br>
+                  <a class="maintext" href="questions/5f10bd3ae2faf06bcbf99e1b">What is Python?</a></br>
+                </div>
+                <div class="column">
+        
+                    <h2>Ask a Question</h2></br>
+                    <button class="button" type="submit"><a href="questions/new">Go on, Ask!</a></button>
+                </div>
+              </div>
     </main>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div id="bug">
+    <div id="leftAntenna"></div>
+    <div id="rightAntenna"></div>
+    <div id="bugHead"></div>
+    <div id="bugBody"></div>
+    <div id="bugLeftArm"></div>
+    <div id="bugRightArm"></div>
+    <div id="bugMiddleLeft"></div>
+    <div id="bugMiddleRight"></div>
+    <div id="bugLeftLeg"></div>
+    <div id="bugRightLeg"></div>
+    <div id="leftWing"></div>
+    <div id="rightWing"></div>
+    </div>
+    
 </body>
 </html>

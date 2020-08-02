@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css"/>    
+    <link rel="stylesheet" type="text/css" href="/styles/style.css"/>
     <title>Ask</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
-    <h1>Ask A Question!</h1>
-    <form action="/questions" method="POST">
-               
+    <div class="questionsTop">
+        <h1>Ask A Question!</h1>
+    </div>
+    <form class="pagetext" action="/questions" method="POST">
         
-        <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
-        
-        <div>  
+    <div id="askAlign">  
            
-          <label for="ask">Question:</label></br>
+          <label for="ask" class="label">Question</label></br>
+          <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
           <textarea type="text" id="question" name="question"></textarea>
         </div>
-        <button type="submit">Submit</button>
-      </form>
+        <button class="button" type="submit">Submit</button>
+    
+      </form></br>
+
+      <div id="bug">
+        <div id="leftAntenna"></div>
+        <div id="rightAntenna"></div>
+        <div id="bugHead"></div>
+        <div id="bugBody"></div>
+        <div id="bugLeftArm"></div>
+        <div id="bugRightArm"></div>
+        <div id="bugMiddleLeft"></div>
+        <div id="bugMiddleRight"></div>
+        <div id="bugLeftLeg"></div>
+        <div id="bugRightLeg"></div>
+        <div id="leftWing"></div>
+        <div id="rightWing"></div>
+        </div>
 </body>
 </html>

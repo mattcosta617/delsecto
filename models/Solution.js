@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 
 
-const askController = new mongoose.Schema ({
+const solutionController = new mongoose.Schema ({
     solution: {
         type: String,
     }
 }, {timestamps: true});
 
-const Solution = mongoose.model('Solution', askController);
+const Solution = mongoose.model('Solution', solutionController);
 
 module.exports = Solution;

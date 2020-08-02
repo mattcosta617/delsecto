@@ -3,15 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>Document</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
 
-<h1>Edit Your Question</h1>
+<h1>Edit Your <%= question.languageId %> Question</h1>
 
-<%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
+
+
+<main>
+<form action="/questions/<%= question._id %>?_method=PUT" method="POST">
+
+    <div class="language"><%- include ('../partials/languageList.ejs'); -%></div>
+
+    <div>
+        <label for="question" id="qLabel">Question</label>
+        <textarea id="body2" name="question"><%= question.question %></textarea>
+    </div>
+    <button type="submit" class="button">Update Question</button>
+    
+  </form>
+    <%- include ('../partials/deleteButton.ejs', {url: `/questions/${question.id}`}); -%>
+</main>
+
+
+<div id="bug">
+    <div id="leftAntenna"></div>
+    <div id="rightAntenna"></div>
+    <div id="bugHead"></div>
+    <div id="bugBody"></div>
+    <div id="bugLeftArm"></div>
+    <div id="bugRightArm"></div>
+    <div id="bugMiddleLeft"></div>
+    <div id="bugMiddleRight"></div>
+    <div id="bugLeftLeg"></div>
+    <div id="bugRightLeg"></div>
+    <div id="leftWing"></div>
+    <div id="rightWing"></div>
+    </div>
 </body>
 </html>

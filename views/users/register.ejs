@@ -3,25 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <title>Signup</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
 
     <main>  
-        <h1>Create A User Name!</h1>
-        <form action="/users/show" method="POST">
-            <div>
-              <label for="username">Name</label>
-              <input type="text" name="username">
-            </div>
-            <div>
-              <label for="password">Password</label>
-              <input type="text" name="password"></input>
-            </div>
-            <button type="submit">Create User</button>
-          </form>
+        <h1 class="questionsTop" id="signup">Signup</h1>
+        <form method="POST">
+          <input class="loginput" type="text" name="username" placeholder="username">
+        </div>
+        <div>
+          <input class="loginput" type="text" name="password" placeholder="password"></input>
+        </div>
+        <button class="button" type="submit">Create User</button>
     </main>
+
+    <div id="bug">
+      <div id="leftAntenna"></div>
+      <div id="rightAntenna"></div>
+      <div id="bugHead"></div>
+      <div id="bugBody"></div>
+      <div id="bugLeftArm"></div>
+      <div id="bugRightArm"></div>
+      <div id="bugMiddleLeft"></div>
+      <div id="bugMiddleRight"></div>
+      <div id="bugLeftLeg"></div>
+      <div id="bugRightLeg"></div>
+      <div id="leftWing"></div>
+      <div id="rightWing"></div>
+      </div>
 </body>
 </html>

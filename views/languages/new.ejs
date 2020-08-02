@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+    <title>New Language</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
+
+    <h1>Language not listed? Add it!</h1>
+    <form action="/languages" method="POST">
+        <div>  
+           
+          <label for="language">New Language:</label></br>
+          <textarea type="text" id="language" name="language"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+
+      <div id="bug">
+        <div id="leftAntenna"></div>
+        <div id="rightAntenna"></div>
+        <div id="bugHead"></div>
+        <div id="bugBody"></div>
+        <div id="bugLeftArm"></div>
+        <div id="bugRightArm"></div>
+        <div id="bugMiddleLeft"></div>
+        <div id="bugMiddleRight"></div>
+        <div id="bugLeftLeg"></div>
+        <div id="bugRightLeg"></div>
+        <div id="leftWing"></div>
+        <div id="rightWing"></div>
+        </div>
 </body>
 </html>

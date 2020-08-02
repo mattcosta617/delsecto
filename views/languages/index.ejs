@@ -3,20 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" />
     <title>Languages</title>
 </head>
 <body>
     <%- include ('../partials/header.ejs'); -%>
     <main>
-        <h1>Languages</h1>
-        <a href=""><h3>HTML</h3></a>
-        <a href=""><h3>CSS</h3></a>
-        <a href=""><h3>Javascript</h3></a>
-        <a href=""><h3>Mongo</h3></a>
-        <a href=""><h3>Mongoose</h3></a>
-        <a href=""><h3>Python</h3></a>
-        <a href=""><h3>Git</h3></a>
+        <div  class="questionsTop" >
+            <h1 id="langLabel">Languages</h1>
+        </div>
+       
+    <% languages.forEach(language => { %>
+        <h2 class="langName">
+          <a href="/languages/<%= language._id %>">
+            <%= language.language %>
+          </a>
+        </h2>
+      <% }) %>
+    
     </main>
+
+    <div id="bug">
+        <div id="leftAntenna"></div>
+        <div id="rightAntenna"></div>
+        <div id="bugHead"></div>
+        <div id="bugBody"></div>
+        <div id="bugLeftArm"></div>
+        <div id="bugRightArm"></div>
+        <div id="bugMiddleLeft"></div>
+        <div id="bugMiddleRight"></div>
+        <div id="bugLeftLeg"></div>
+        <div id="bugRightLeg"></div>
+        <div id="leftWing"></div>
+        <div id="rightWing"></div>
+        </div>
 </body>
 </html>
